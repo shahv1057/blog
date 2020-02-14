@@ -1,11 +1,11 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://veeral.now.sh">
-    <img alt="Gatsby" src="https://veeral.now.sh/logo.jpg" width="60" />
+    <img alt="Gatsby" src="https://veeral.now.sh/logo.jpg" width="120" />
   </a>
 </p>
 <h1 align="center">
-  Welcome to the source code for my personal website
+  Welcome to the source code for my personal website and blog
 </h1>
 
 Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
