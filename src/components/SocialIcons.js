@@ -17,7 +17,7 @@ export default () => (
     `}
   >
     <a
-      href="https://instagram.com/hi.kunal"
+      href="https://instagram.com/veeral_shah"
       target="blank"
       rel="noopener noreferrer"
       style={{
@@ -31,7 +31,7 @@ export default () => (
       />
     </a>
     <a
-      href="https://github.com/kunalgorithm"
+      href="https://github.com/shahv1057"
       target="blank"
       rel="noopener noreferrer"
       style={{
