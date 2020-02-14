@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://veeral.now.sh">
-    <img alt="Gatsby" src="https://kunal.sh/logo.png" width="60" />
+    <img alt="Gatsby" src="https://veeral.now.sh/logo.jpg" width="60" />
   </a>
 </p>
 <h1 align="center">
