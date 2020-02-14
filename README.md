@@ -1,6 +1,6 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  <a href="https://kunal.sh">
+  <a href="https://veeral.now.sh">
     <img alt="Gatsby" src="https://kunal.sh/logo.png" width="60" />
   </a>
 </p>
