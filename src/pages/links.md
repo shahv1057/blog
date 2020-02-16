@@ -49,6 +49,32 @@ In the last 5 NFL seasons, there have been 7881 4th and (0-5) yards-to-go situat
 
 ![alt text](./Plots/FootballField1.png "Logo Title Text 1")
 
+In these situations, there have been approximately 1800 conversion attempts, 1900 field goal attempts, and 4000 punts
+
+The 4th down conversion attempts can then be further split into:
+
+- 1813 attempts
+    - 192 Touchdowns
+    - 795 First Downs
+    - 54.4% Conversion Rate (First Down or Touchdown)
+- 1053 pass attempts
+    - 109 Touchdowns
+    - 384 First Downs
+    - 46.8% Conversion Rate (First Down or Touchdown)
+- 760 rush attempts
+    - 83 Touchdowns
+    - 411 First Downs
+    - 62.5% Conversion Rate (First Down or Touchdown)
+
+
+
+
+
+
+
+
+
+
 
 
 
