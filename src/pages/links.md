@@ -2,6 +2,7 @@
 title: "4th and 1"
 date: "2020-02-14"
 ---
+### Intro/Motivation
 
 4th Down. 1 yard to the endzone. ~30 seconds left in the half of the Super Bowl. The Philadelphia Eagles have a choice to either kick a relatively easy field goal and take 3 points, or go for the touchdown and risk coming away with nothing before the half.
 
@@ -13,20 +14,17 @@ These questions can be answered through coaches' debates, understanding of the g
 
 To answer that, we're going to need to take a closer look:
 
+### A First Look
+
+First instinct is to take a look at how often teams go for it on 4th downs. 
+
+
+![alt text](Plots/4thdownatt_heatmap.png "Logo Title Text 1")
 
 
 
+[NFL PlaybyPlay GitHub Repo](https://github.com/shahv1057/NFL_PBP)
 
-
-
-
-
-
-- [Augmenting Long-term Memory](http://augmentingcognition.com/ltm.html)
-- [Augmenting Human Intellect: A Conceptual Framework](https://www.dougengelbart.org/content/view/138/) - Englebart
-- [Improving Our Ability to Improve](https://www.dougengelbart.org/content/view/348/000/) - Englebart
-- [Quantum computing for the very curious](https://quantum.country/qcvc)
-- [How can we develop tranformative tools for thought?](https://numinous.productions/ttft/)
 
 ### Opinion
 
