@@ -19,11 +19,7 @@ To answer that, we're going to need to take a closer look:
 
 First instinct is to take a look at how often teams go for it on 4th downs.
 
-<<<<<<< HEAD:src/pages/links.md
 ![alt text](/Plots/4thdownatt_barplot.png "Logo Title Text 1")
-=======
-![Logo Title Text 1](/Plots/4thdownatt_barplot.png)
->>>>>>> 0f614d1e92690637b23e74a53e6dac7710eb04bd:src/pages/4th-and-1.md
 
 Clearly, teams around the league have been increasingly inclined to go for it in 4th downs. However, this general trend has differed across different teams.
 
@@ -68,7 +64,6 @@ The 4th down conversion attempts can then be further split into:
   - 384 First Downs
   - 46.8% Conversion Rate (First Down or Touchdown)
 - 760 rush attempts
-<<<<<<< HEAD:src/pages/links.md
     - 83 Touchdowns
     - 411 First Downs
     - 62.5% Conversion Rate (First Down or Touchdown)
@@ -111,10 +106,5 @@ I'm going to need to transform my data set. Here are the steps I need to take:
 
 
 
-=======
-  - 83 Touchdowns
-  - 411 First Downs
-  - 62.5% Conversion Rate (First Down or Touchdown)
->>>>>>> 0f614d1e92690637b23e74a53e6dac7710eb04bd:src/pages/4th-and-1.md
 
 [NFL PlaybyPlay GitHub Repo](https://github.com/shahv1057/NFL_PBP)
