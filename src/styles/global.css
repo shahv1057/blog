@@ -1,18 +1,3 @@
 html {
   background-color: white;
 }
-
-a {
-  text-decoration: none;
-  text-shadow: none;
-  background-image: none;
-}
-
-a:hover {
-  color: slategray;
-}
-
-a > img {
-  text-shadow: none;
-  background-image: none;
-}

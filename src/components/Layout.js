@@ -31,7 +31,9 @@ export default ({ children, title = undefined }) => {
       />
       <header style={{ marginBottom: `1.5rem` }}>
         <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-          <h3 style={{ display: `inline` }}>{data.site.siteMetadata.title}</h3>
+          <h3 style={{ display: `inline`, color: "black" }}>
+            {data.site.siteMetadata.title}
+          </h3>
         </Link>
 
         <ul style={{ listStyle: `none`, float: `right` }}>
