@@ -46,21 +46,7 @@ export default () => (
     </a>
 
     <a
-      href="https://twitter.com/kunalgoritm"
-      target="blank"
-      rel="noopener noreferrer"
-      style={{
-        borderBottom: "none",
-      }}
-    >
-      <FaTwitter
-        style={{
-          marginRight: "1em",
-        }}
-      />
-    </a>
-    <a
-      href="https://www.linkedin.com/in/kunalsh22/"
+      href="https://www.linkedin.com/in/veeral-shah-b1701511a/"
       target="blank"
       rel="noopener noreferrer"
       style={{

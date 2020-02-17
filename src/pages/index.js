@@ -15,7 +15,11 @@ export default ({ data }) => {
               ({ node }) => !node.frontmatter.draft
             ).length
           }{" "}
-          Posts
+          {data.allMarkdownRemark.edges.filter(
+            ({ node }) => !node.frontmatter.draft
+          ).length > 1
+            ? "Posts"
+            : "Post"}
         </h4>
         {data.allMarkdownRemark.edges
           .filter(({ node }) => !node.frontmatter.draft)
