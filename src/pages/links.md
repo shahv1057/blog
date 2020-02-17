@@ -19,13 +19,13 @@ To answer that, we're going to need to take a closer look:
 First instinct is to take a look at how often teams go for it on 4th downs. 
 
 
-![alt text](./Plots/4thdownatt_barplot.png "Logo Title Text 1")
+![alt text](/Plots/4thdownatt_barplot.png "Logo Title Text 1")
 
 Clearly, teams around the league have been increasingly inclined to go for it in 4th downs. However, this general trend has differed across different teams.
 
 Below we can see the differences between various teams in their willingness to attempt a 4th down conversion through the last five years. The Eagles (PHI) clearly stand out, consistently going for it on 4th downs more often than most of the league since 2016, the year Coach Pederson was hired.
 
-![alt text](./Plots/4thdownatt_heatmap.png "Logo Title Text 1")
+![alt text](/Plots/4thdownatt_heatmap.png "Logo Title Text 1")
 
 This paints a picture, but ultimately  what a coach needs to make that key Super Bowl decision is an anaytical model that guides his decision making and play choice in these incredibly significant game moments. 
 
@@ -47,7 +47,7 @@ First, lets attempt to define a specific situation.
 
 In the last 5 NFL seasons, there have been 7881 4th and (0-5) yards-to-go situations with an average of 2.847 yards to go at an average yardline position of the OPP 45 yard line.
 
-![alt text](./Plots/FootballField1.png "Logo Title Text 1")
+![alt text](/Plots/FootballField1.png "Logo Title Text 1")
 
 In these situations, there have been approximately 1800 conversion attempts, 1900 field goal attempts, and 4000 punts
 
@@ -65,6 +65,32 @@ The 4th down conversion attempts can then be further split into:
     - 83 Touchdowns
     - 411 First Downs
     - 62.5% Conversion Rate (First Down or Touchdown)
+
+### Machine Learning framework
+
+I am interested in the question of whether or not to attempt to convert a 4th down situation. This is a binary classification problem of:
+
+#### Kick a field goal or punt (val=0)
+##### OR
+#### Run a Pass/Run play to convert a First Down or Touchdown (val=1)  
+&nbsp;  
+Therefore, I will be using various classification learning algorithims to attempt to best create a tool for analytically predicting decision making choices in 4th down situations. 
+
+I'm going to need to transform my data set. Here are the steps I need to take:
+
+1) Group my PlayType variable into a binary 0 or 1 variable
+2) Identify the variables that I believe will impact the decision
+3) Make sure all variables are numeric or binary to make my algorthim work seamlessly
+
+- First -- Grouping
+    - PlayType == FIELD GOAL or PUNT = 0
+    - PlayType == PASS or RUSH or SCRAMBLE or SACK = 1
+
+- Second -- Feature Selection
+    - ToGo
+    - Yardline
+    - TimeLeftInHalf
+    - Half
 
 
 
