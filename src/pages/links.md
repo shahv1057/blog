@@ -21,7 +21,7 @@ First instinct is to take a look at how often teams go for it on 4th downs.
 
 ![alt text](./Plots/4thdownatt_barplot.png "Logo Title Text 1")
 
-Clearly, teams around the league have been increasingly more inclined to go for it in 4th downs. However, this general trend has differed across different teams.
+Clearly, teams around the league have been increasingly inclined to go for it in 4th downs. However, this general trend has differed across different teams.
 
 Below we can see the differences between various teams in their willingness to attempt a 4th down conversion through the last five years. The Eagles (PHI) clearly stand out, consistently going for it on 4th downs more often than most of the league since 2016, the year Coach Pederson was hired.
 
