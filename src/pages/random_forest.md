@@ -4,21 +4,21 @@ date: "2020-02-20"
 ---
 ### Intro
 
-I have been learning a lot recently about different machine learning classification algorithims. Classification is an extremely useful tool in data science and machine learning for predicting classes for various datasets. There are a variety of Classification algorithims out there today, including logistic regression, decision trees, support vectors machines, Naive Bayes, and more. 
+I have been learning a lot recently about different machine learning classification algorithims. Classification is an extremely useful supervised learning tool in data science and machine learning for predicting an categorizing examples into preselected bins/classes. There are a variety of classification algorithims out there today, including logistic regression, decision trees, support vectors machines,Naive Bayes, and more. 
 
-In this post, I will be diving into **Random Forest Classifiers**. I am going to use a random forest classification algorithim to build a predictive analysis model on NFL Play-By-Play data from 2009-2018. 
+In this post, I will be diving into **Random Forest Classifiers**. I am going to use a random forest classification algorithim to build a predictive analysis model on NFL Play-By-Play data from 2009-2018. My model will input a play situation, including variables such as time, down, yards to go, score, etc., and output a play type prediction.
 
 ### Motivation
 
 The power to predict play types in the NFL would be an incredible advantage, both from the offensive and defensive perspectives.
 
-**Offenses:** predictive analyses to make critical decisions, such as whether or not to go for it on 4th down, or whether to just punt the ball to the other team instead.
+**Offenses:** Use predictive analyses to make critical decisions such as deciding between going for it on 4th down, or choosing to kick a field goal.
 
-**Defenses:** use predictive analyses to understand opposing offenses and build defensive schemes specific to fit particular game and personnel situations.
+**Defenses:** use predictive analyses to understand opposing offenses and build defensive schemes specific to disrupt set offensive plays.
 
 ### Data
 
-I will be using Max Horowitz's NFL Play-By-Play dataset on Kaggle and analyzing the data on Python. I will be utilizing various Python data analysis and machine learning packages to supplement my analyses.
+I will be using Max Horowitz's NFL 2009-2018 Play-By-Play dataset from Kaggle and analyzing the data on Python. I will be utilizing various Python data science and machine learning packages to supplement my analyses.
 
 ```
 import pandas as pd
@@ -31,7 +31,7 @@ import fastai
 ```
 
 ### Cleaning/Feature Engineering
-I need an all numeric data set to use the sklearn Random Forest Classifier algorithim. In order to transform my current data into an applicable data set I'm going to need to clean, adjust, and feauture engineer my data.
+A computer cannot understand words like 'punt' or 'pass'. Therefore, I need to transform my data into an all-numeric data set to effectively utilize sklearn's Random Forest Classifier algorithim. In order to transform my current data, I'm going to need to define, adjust, clean, and feature engineer my data.
 
 #### Variables
 
@@ -62,14 +62,15 @@ I need an all numeric data set to use the sklearn Random Forest Classifier algor
 - **Year**
 - **Month**
 
-#### Cleaning, Categorifying, and Dealing with Missing Data 
+#### Encoding Categorical Data and Dealing with Missing Values 
 
 After identifying my variables and features, I need to encode my categorical variables. My dependent variable, 'play type', has been filtered only to punt, field goal, run, and pass plays to eliminate extraneous plays such as kickoffs, penalties, and extra points. I encode my 4 play_types as 0, 1, 2, and 3. Additionally, I encode the team names in pos team and def team from 0-31 to represent each of the 32 teams in the NFL. 
 
 Next, I fill all NaNs in game/half seconds remaining. These empty cells seem to be some kind of collection error, but can be filled in fairly easily using the a combination of the "quarter",and "quarter seconds remaining" variables. This is a necessary step of cleaning my data to avoid missing data errors.
 
 ### Preprocessing
-I split my data up into training set, validation set, and test set.
+I split my data up into training set, validation set, and test set. I will train my algorthim on the training set, validate it works and adjust hyperparameters on the validation set, and the ultimately see its utility on the test set.
+
 - Training set: 2009-2016
 - Validation set: 2017
 - Test set: 2018
@@ -152,10 +153,15 @@ The diagonal of the matrix shows all accurate predictions! Not too bad for my fi
 
 Here are my accuracies separated by play:
 
-punt: 98.8%
-field goal: 93.4%
-rush: 65.1%
-pass: 72.9%
+**punt**: 98.8%
+
+**field goal**: 93.4%
+
+**rush**: 65.1%
+
+**pass**: 72.9%
+
+My algorithim did very well classifying punts and field goals. However, it clearly has the most trouble interchanging running and passing plays.
 
 ### Areas for Further Improvement
 
@@ -176,6 +182,9 @@ One such idea that could lead to improvement would be to add additional features
 
 As this is my first Random Forest Classifier, I am still developing a more comprehensive understand of how to fine-tune particular features to improve my data. 
 
-#### Try other Classification models
+#### Try other machine learning classification models
 
 More on this hopefully coming soon!!
+
+-----------------------------------------------------------------------------------------------
+## **THANK YOU FOR READING!**
