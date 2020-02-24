@@ -7,9 +7,9 @@ date: "2020-02-20"
 
 ### Intro
 
-I have been learning a lot recently about different machine learning classification algorithims. Classification is an extremely useful supervised learning tool in data science and machine learning for predicting an categorizing examples into preselected bins/classes. There are a variety of classification algorithims out there today, including logistic regression, decision trees, support vectors machines,Naive Bayes, and more. 
+I have been learning a lot recently about different machine learning classification algorithims. Classification is an extremely useful supervised learning tool in data science and machine learning for analyzing and  examples and fitting them into preselected bins/categories. There are a variety of classification algorithims out there today, including logistic regression, decision trees, support vectors machines, Naive Bayes, and more. 
 
-In this post, I will be diving into **Random Forest Classifiers**. I am going to use a random forest classification algorithim to build a predictive analysis model on NFL Play-By-Play data from 2009-2018. My model will input a play situation, including variables such as time, down, yards to go, score, etc., and output a play type prediction.
+In this post, I will be diving into **Random Forest Classification**. I am going to use a random forest classifier to build a predictive analysis model on NFL Play-By-Play data from 2009-2018. My model will input a play situation, including variables such as time, down, yards to go, score, etc., and output a play type prediction.
 
 ### Motivation
 
@@ -17,11 +17,11 @@ The power to predict play types in the NFL would be an incredible advantage, bot
 
 **Offenses:** Use predictive analyses to make critical decisions such as deciding between going for it on 4th down, or choosing to kick a field goal.
 
-**Defenses:** use predictive analyses to understand opposing offenses and build defensive schemes specific to disrupt set offensive plays.
+**Defenses:** Use predictive analyses to understand opposing offenses and build defensive schemes specific to disrupt set offensive plays.
 
 ### Data
 
-I will be using Max Horowitz's NFL 2009-2018 Play-By-Play dataset from Kaggle and analyzing the data on Python. I will be utilizing various Python data science and machine learning packages to supplement my analyses.
+I will be using Max Horowitz's [NFL 2009-2018 Play-By-Play dataset](https://www.kaggle.com/maxhorowitz/nflplaybyplay2009to2016) from Kaggle and analyzing the data on Python. I will be utilizing various Python data science and machine learning packages to supplement my analyses.
 
 ```
 import pandas as pd
@@ -34,7 +34,7 @@ import fastai
 ```
 
 ### Cleaning/Feature Engineering
-A computer cannot understand words like 'punt' or 'pass'. Therefore, I need to transform my data into an all-numeric data set to effectively utilize sklearn's Random Forest Classifier algorithim. In order to transform my current data, I'm going to need to define, adjust, clean, and feature engineer my data.
+A computer cannot understand words like 'punt' or 'pass'. Therefore, I need to transform my data into an all-numeric data set to effectively utilize sklearn's Random Forest Classifier algorithim. In order to transform my current data, I'm going to need to define, adjust, and clean my data.
 
 #### Variables
 
@@ -69,10 +69,10 @@ A computer cannot understand words like 'punt' or 'pass'. Therefore, I need to t
 
 After identifying my variables and features, I need to encode my categorical variables. My dependent variable, 'play type', has been filtered only to punt, field goal, run, and pass plays to eliminate extraneous plays such as kickoffs, penalties, and extra points. I encode my 4 play_types as 0, 1, 2, and 3. Additionally, I encode the team names in pos team and def team from 0-31 to represent each of the 32 teams in the NFL. 
 
-Next, I fill all NaNs in game/half seconds remaining. These empty cells seem to be some kind of collection error, but can be filled in fairly easily using the a combination of the "quarter",and "quarter seconds remaining" variables. This is a necessary step of cleaning my data to avoid missing data errors.
+Next, I fill all _NaNs_ in game/half seconds remaining. These empty cells seem to be some kind of collection error, but can be filled in fairly easily using the a combination of the "quarter", and "quarter seconds remaining" variables. This is a necessary step of cleaning my data to avoid errors on missing data.
 
 ### Preprocessing
-I split my data up into training set, validation set, and test set. I will train my algorthim on the training set, validate it works and adjust hyperparameters on the validation set, and the ultimately see its utility on the test set.
+I split my data up into training set, validation set, and test set. I will train my algorthim on the training set, validate it works and adjust the parameters of my algorithim on the validation set, and the ultimately see its utility on the test set.
 
 - Training set: 2009-2016
 - Validation set: 2017
@@ -84,27 +84,27 @@ To evaluate the performance of my algorithim, I need a baseline accuracy to comp
 
 ![alt text](/Plots/playtypes.png "Logo Title Text 1")
 
-As seen above, more than 180,000 of my almost 350,000 plays are _pass_ plays. Therefore, I will be using the baseline of predicting every play as a pass play, achieving a 52% accuracy score. Lets see how much I can improve on that.
+As seen above, more than 180,000 of my almost 350,000 plays are _pass_ plays. Therefore, I will be using the baseline of predicting every play as a _pass_ play. This incredibly simple prediction model achieves a 52% accuracy score. Lets see how much I can improve on that.
  
 ### What is a Random Forest Classifier?
 
-A great question. A random forest classifier is a complex machine learning classification algorithim composed of several much simpler, intuitive decision trees. 
+A great question. In fact, the most important question to this whole analysis. **A random forest classifier** is a complex machine learning classification algorithim composed of several much simpler, intuitive decision trees. 
 
 I think of a 'decision tree' as a analytical version of the classic game, 21 questions, with the '21' representing the depth of the tree. **How many True/False questions would you have to ask before confidently predicting the answer?**
 
 ![alt text](/Plots/SimpleNFLtree.png "Logo Title Text 1")
 
-The above is my simple NFL play predictors decision tree. We start at the top node. The tree is split based on the variable 'down' at the value 3.5, essentially performing the 21-question version of asking "Is it 4th down?" 
+The above is my simple NFL play prediction decision tree. We start at the top node. The tree is split based on the variable 'down' at the value 3.5, essentially performing the 21-question version of asking "Is it 4th down?" 
 
-A  subsample of plays in which down<=3.5 (1st, 2nd, and 3rd down plays) is True move down to the left. The subsample of 4th down plays move to the right node. This is already an incredible insight, as punts and field goals are almost exclusively done on 4th downs, so this split would immediately help classification between punt/field goals and run/pass plays. 
+A subsample of plays in which down<=3.5 (1st, 2nd, and 3rd down plays) is True move down to the left. The subsample of 4th down plays move to the right node. This is already an incredible insight, as punts and field goals are almost exclusively done on 4th downs, so this split would immediately help classification between punt/field goals and run/pass plays. 
 
-The decision tree chooses variables and splits based on optimizing information entropy, or information gain. From all possible variable splits, which variable split provides the most information towards make a concrete prediction? 'Down' at 3.5 provides the most information at the top node. The next level then looks at the new level-1 split sample and again finds the variable split that optimizes entropy and the process continues.
+The decision tree chooses variables and splits based on optimizing information entropy, or more colloquially, information gain. From all possible variable splits, which variable split provides the most information towards making a concrete prediction? The variable,'Down', split at 3.5, provides the most information, and is consequently placed at the top node. The next level then finds the next variable split that optimizes entropy in its new subample, and the process continues.
 
 #### **How does this simple decision tree build a much more powerful random forest?**
 
 A random forest classifier consists of several of these simple decision trees with each tree going into much further depths than the 2-level simple tree in the above diagram.
 
-The key to the random forest model is a concept coined **Bagging**, or more formally, **Bootstrap Aggregation**. Bagging creates a system where each tree of a random forest is created on a randomly chosen subset of the training data (with replacement). With decision trees so heavily dependent on the dataset, each tree will be distinctive, and together the trees will encompass the entire data set.
+The key to the random forest model is a concept coined **Bagging**, or more formally, [**Bootstrap Aggregation**](https://en.wikipedia.org/wiki/Bootstrap_aggregating). Bagging creates a system where each tree of a random forest is created on a randomly chosen subset of the training data (with replacement). With decision trees so heavily dependent on the dataset, each tree will be distinctive, and together the trees will encompass the entire data set.
 
 ![alt text](/Plots/randforestexample.jpeg "Logo Title Text 1")
 
@@ -119,12 +119,12 @@ Below is my unofficial descriptions of some of the key parameters:
 - n_estimators: Number of trees
 - max_depth: how many levels each tree to reach at maximum (earlier example = 2)
 - criterion: variable to measure information gain from each variable split
-- min_samples_split: Minimum samples at which to no longer split data subset
+- min samples split: Minimum samples at which to no longer split data subset
 
 
 ### Algorithim
 
-I'm (finally) all ready to run my algorithim.
+I'm (finally) all ready to run the algorithim.
 
 I split my training data into the aforementioned X and Y data. Then, I create a RandomForestClassifier object and train my data:
 
@@ -139,16 +139,16 @@ Then, I build a NumPy array of predictions using the predict method on my X vali
 preds = m.predict(X_valid)
 ```
 
-Lastly, I compare my predictions to the true y_validation set and output an accuracy score to evaluate my algorithim. Here's a view of my full validation set with each row representing a play with a True yvalid value and corresponding prediction y value:
+Lastly, I compare the predictions to the true y_validation set and output an accuracy score to evaluate my algorithim. Here's a view of my full validation set with each row representing a play with a True yvalid value and corresponding prediction y value:
 
 ![alt text](/Plots/predsdf1.png "Logo Title Text 1")
 ![alt text](/Plots/predsdf2.png "Logo Title Text 1")
 
 ### Results
 
-My algorithim worked well! Compared to the 52% baseline comparison. My model delivered 72.35% accuracy, improving on the baseline by almost 20 basis points!
+The algorithim worked well! Compared to the 52% baseline, the model delivered 72.35% accuracy, improving on the baseline by almost 20 basis points!
 
-To better analyze my results and look for areas of improvement, I built a confusion matrix to show where my model did well and where it struggled:
+To further analyze my results and look for areas of improvement, I built a confusion matrix to show where the model did well and where it struggled:
 
 ![alt text](/Plots/confusion_matrix.png "Logo Title Text 1")
 
@@ -168,22 +168,22 @@ My algorithim did very well classifying punts and field goals. However, it clear
 
 ### Areas for Further Improvement
 
-My algorithim worked well, but there was definitely areas for further improvement.
+My algorithim worked well, but there were a few areas of potential adjustment and further research that could yield improved results.
 
 #### Look for correlations between incorrect data
 
-With 27.65% of my data incorrect, a first, next step in the pursuit of model accuracy improvement would be to analyze my incorrect data. What stands out? What is not being understood well my the random forest
+With 27.65% of my data incorrect, a first, next step in the pursuit of model accuracy improvement would be to analyze my incorrect data. What stands out? What is not being understood well my the random forest?
 
 
 #### Find new features
 
-My algorithim only correctly identified 65% of rushing plays, by far the lowest percentage. I believe is definitely room for improvement in that regard. 
+The algorithim only correctly identified 65% of rushing plays, by far the lowest percentage. There must be room for improvement.
 
-One such idea that could lead to improvement would be to add additional features to better classify incorporate game weather. 
+One such idea that could lead to improvement would be to add additional features to better classify incorporate game weather. Perhaps, teams tend to run more when it is windy out, or run more when its raining and the ball is too slick to throw.
 
 #### Better fine-tune parameters
 
-As this is my first Random Forest Classifier, I am still developing a more comprehensive understand of how to fine-tune particular features to improve my data. 
+As this is my first Random Forest Classifier, I am still developing a more comprehensive understanding of how to fine-tune particular features to improve my data. 
 
 #### Try other machine learning classification models
 
