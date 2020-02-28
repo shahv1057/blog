@@ -3,11 +3,11 @@ title: "NFL Play Predictive Analysis"
 date: "2020-02-20"
 ---
 
-![alt text](/Plots/payton-playsheet-375.jpg "Logo Title Text 1")
+![playsheet](/Plots/payton-playsheet-375.jpg "Logo Title Text 1")
 
 ### Intro
 
-I have been learning a lot recently about different machine learning classification algorithims. Classification is an extremely useful supervised learning tool in data science and machine learning for analyzing and  examples and fitting them into preselected bins/categories. There are a variety of classification algorithims out there today, including logistic regression, decision trees, support vectors machines, Naive Bayes, and more. 
+I have been learning a lot recently about different machine learning classification algorithims. Classification is an extremely useful supervised learning tool in data science and machine learning for analyzing  examples and fitting them into preselected bins/categories. There are a variety of classification algorithims out there today, including logistic regression, decision trees, support vectors machines, Naive Bayes, and more. 
 
 In this post, I will be diving into **Random Forest Classification**. I am going to use a random forest classifier to build a predictive analysis model on NFL Play-By-Play data from 2009-2018. My model will input a play situation, including variables such as time, down, yards to go, score, etc., and output a play type prediction.
 
@@ -88,7 +88,7 @@ As seen above, more than 180,000 of my almost 350,000 plays are _pass_ plays. Th
  
 ### What is a Random Forest Classifier?
 
-A great question. In fact, the most important question to this whole analysis. **A random forest classifier** is a complex machine learning classification algorithim composed of several much simpler, intuitive decision trees. 
+A great question. In fact, its the most important question to this whole analysis. **A random forest classifier** is a complex machine learning classification algorithim composed of several much simpler, intuitive decision trees. 
 
 I think of a 'decision tree' as a analytical version of the classic game, 21 questions, with the '21' representing the depth of the tree. **How many True/False questions would you have to ask before confidently predicting the answer?**
 
@@ -180,6 +180,12 @@ With 27.65% of my data incorrect, a first, next step in the pursuit of model acc
 The algorithim only correctly identified 65% of rushing plays, by far the lowest percentage. There must be room for improvement.
 
 One such idea that could lead to improvement would be to add additional features to better classify incorporate game weather. Perhaps, teams tend to run more when it is windy out, or run more when its raining and the ball is too slick to throw.
+
+#### Address collinearity
+
+Collinearity occurs when some of the independent features in a model are highly correlated. This can potentially be limiting my model, as highly correlated variables may get in the way of each other in the process of identifying 
+
+The variables, 'wp','score_differential', and 'game seconds remaining' may be collinear as wp is heavily dependent on a combination of score differential and game time left.
 
 #### Better fine-tune parameters
 
