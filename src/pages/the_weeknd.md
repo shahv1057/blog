@@ -3,6 +3,8 @@ title: "Has the Weeknd's music changed? An analytical look into his music over t
 date: "2020-02-22"
 ---
 
+![debatepic](/Plots/weekndpic.jpg "Logo Title Text 1")
+
 ### Intro
 
 The Weeknd has had an incredible amount of success over the last few years. Songs like "Earned It", "The Hills", "Can't Feel My Face", "Starboy", "I Feel It Coming", and many more songs have dominated top charts on popular streaming services like Spotify and Apple Music. His mix of Pop, Hip Hop, and R&B has clearly left a mark.
