@@ -1,5 +1,5 @@
 ---
-title: "Has the Weeknd's music changed? An analytical look into his music over the years"
+title: "Has the Weeknd's music changed? An analytical look into his music over the years" :notes: :chart_with_upwards_trend:
 date: "2020-02-22"
 ---
 
@@ -34,9 +34,12 @@ There are several steps that need to be taken before NLP analyses can even begin
     - The only way to utilize NLP techniques to analyze human language is to clean and adjust the data to make it amenable to NLP functions
 - Feature Engineer Relevant Variables
 
-**AND THEN**
+##### Text Analysis
+##### Results
+##### Visualizations
+##### Conclusions
+##### Areas for Further Research
 
-##### Analysis!!
 
 ### Import Python Packages
 
@@ -51,7 +54,7 @@ import wordcloud
 import sklearn
 ```
 
-### Import Data
+### Import Data :notes:
 
 Before anything can begin, I need to collect my data. In the case of musical NLP analysis, that data lies in song lyrics.
 
