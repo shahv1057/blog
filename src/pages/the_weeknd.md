@@ -1,5 +1,5 @@
 ---
-title: "Has the Weeknd's music changed? An analytical look into his music over the years" :notes: :chart_with_upwards_trend:
+title: "Has the Weeknd's music changed? An analytical look into his music over the years" 
 date: "2020-02-22"
 ---
 
@@ -27,11 +27,11 @@ There are several steps that need to be taken before NLP analyses can even begin
 - Import Python Packages
     - Pandas, NumPy, Matplotlib, Wordcloud, nltk, re, string, sklearn
 - Import Data
-    - In this case, that means importing the lyrics of ecah song from the each of the Weeknd's four released albums
+    - Lyrics from The Weeknd's four released albums: Kiss Land, Trilogy, Beauty Behind the Madness, and Starboy
 - Organize Data
     - Fit data into a Pandas DataFrame
 - Clean Data
-    - The only way to utilize NLP techniques to analyze human language is to clean and adjust the data to make it amenable to NLP functions
+    
 - Feature Engineer Relevant Variables
 
 ##### Text Analysis
@@ -56,11 +56,7 @@ import sklearn
 
 ### Import Data :notes:
 
-Before anything can begin, I need to collect my data. In the case of musical NLP analysis, that data lies in song lyrics.
-
-There are a few methods I considered for my collection. One was BeautifulSoup4, a web parser package which I could use to pull lyrics from various lyrics provider sites like [https://genius.com].
-
-However, rather than manually find websites to pull from, I decided to utilize the _PyLyrics_ package, a program written with the specific purpose of retrieving lyrics.
+First step is to collect my data. Using the _PyLyrics_ package, a program written with the specific purpose of retrieving lyrics, I imported all the The Weeknd's song lyrics into my Jupyter Notebook.
 
 ```
 from PyLyrics import *
@@ -70,7 +66,7 @@ for song in starboy:
     lyr.append(PyLyrics.getLyrics(wknd,song))
 ```
 
-Above is an example of the code I ran to acquire lyrics for every song in an album. Inputting and artist and song name into the getLyrics() function outputted the song's lyrics.
+Above is a snippet of the code I ran to acquire lyrics for every song in an album. Inputting and artist and song name into the getLyrics() function outputted the song's lyrics.
 
 ### Organize Data
 
@@ -81,7 +77,7 @@ My next step is to concatenate all lyrics and organize the songs into a Pandas D
 
 ### Clean Data
 
-NLP requires clean text data. More specifically, it requires punctuation-free, lowercase text to standardize analysis. To make these changes, I built a simple data cleaning function:
+Clean text data is essential to Natural Language Processing. chose to requires punctuation-free, lowercase text to standardize analysis. To make these changes, I built a simple data cleaning function:
 
 ```
 def clean_data(series):
@@ -128,8 +124,16 @@ This is where some project-relevant thought comes in. What features can I engine
  - How many unique words does he use in each song? Could that be a potential measure for song repetitiveness?
 
 #### Streams
-  - How many streams does each of the Weeknd's songs have? 
-  - Are there interesting correlations between a song's stream counts, and other variables in our dataset?
+ - How many streams does each of the Weeknd's songs have? 
+ - Are there interesting correlations between a song's stream counts, and other variables in our dataset?
+
+#### Part-of-Speech Tagging
+ - Is their significant difference between albums or songs in parts-of-speech tagging?
+ - Verb tense differences? Future looking songs as opposed to past reminiscing songs?
+ - Most popular nouns?
+ 
+
+
 
 
 
