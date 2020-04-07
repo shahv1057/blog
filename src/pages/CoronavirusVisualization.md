@@ -24,5 +24,8 @@ As of April 5th, there have been **336,776 cases** and **9,655 deaths** in the U
 ![debatepic](/Plots/COVIDPlots/CTY-bar-ani.gif "Logo Title Text 1")
 
 
+![debatepic](/Plots/COVIDPlots/MapAnimations/counties_outlines.gif "Logo Title Text 1")
+
+
 ### Cases - County & State
 ![debatepic](/Plots/COVIDPlots/STandCTY-bar-ani.gif "Logo Title Text 1")
