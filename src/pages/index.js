@@ -5,7 +5,6 @@ import { rhythm } from "../utils/typography"
 import Layout from "../components/Layout"
 
 export default ({ data }) => {
-  console.log(data)
   return (
     <Layout title="Home">
       <div>
