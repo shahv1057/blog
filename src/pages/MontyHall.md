@@ -101,9 +101,9 @@ Ok, you've seen the probabilities, the math, and the diagrams. You accept that t
 
 The change in probability occurs when the Host (who knows where the car is) chooses to open a door with a goat. This creates a new mathematical situation by which the Contestant can make a choice.
 
-When the Contestant first chooses a door, he or she has no information. Three chioces and no information leads a mathematical random choice and a 1 in 3 chance of selecting the car
+When the Contestant first chooses a door, he or she has no information. Three choices and no information leads to a mathematically random choice, and a 1/3 probability of selecting the car
 
-When the Contestant is given the choice to switch, there is two choices. However, unlike the first time, there is mathematical information to be used in this situation. The concrete information that the Host filtered out **a goat** gives you an extra 16.6% of chance of winning
+When the Contestant is given the choice to switch, there is two choices. However, unlike the first time, there is mathematical information to be used in this situation. The concrete information that the Host filtered out **a goat** gives you an extra 16.6% of chance of winning and turns a random 50/50 guess into a chance to up your odds.
 
 ## Summary
 
