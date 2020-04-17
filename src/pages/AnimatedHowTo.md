@@ -52,7 +52,7 @@ def update(date):
     data = df[df['date']]
     x = data['state']
     y = data['cases']
-    data.plot(x, y, kind=bar)
+    data.plot(x, y, kind='bar)
 
 ```
 
