@@ -1,5 +1,6 @@
 ---
 title: "Using Animated Plots"
+description: "How to create an animated bar plot"
 date: "2020-04-10"
 ---
 

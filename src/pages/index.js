@@ -8,7 +8,7 @@ export default ({ data }) => {
   return (
     <Layout title="Home">
       <div>
-        <h4>
+        <h5>
           {
             data.allMarkdownRemark.edges.filter(
               ({ node }) => !node.frontmatter.draft
@@ -19,7 +19,7 @@ export default ({ data }) => {
           ).length > 1
             ? "Posts"
             : "Post"}
-        </h4>
+        </h5>
         {data.allMarkdownRemark.edges
           .filter(({ node }) => !node.frontmatter.draft)
           .map(({ node }) => (
@@ -33,13 +33,18 @@ export default ({ data }) => {
               >
                 <h3
                   css={css`
-                    margin-bottom: ${rhythm(1 / 4)};
+                    margin-bottom: ${rhythm(1 / 3)};
+                    color: Black;
+                    text-decoration: none;
                   `}
                 >
                   {node.frontmatter.title}{" "}
                   <span
                     css={css`
-                      color: #bbb;
+                      color: hsla(0,0%,50%,0.7);
+                      font-size: 23px;
+                      text-decoration: none;
+                      
                     `}
                   >
                     — {node.frontmatter.date}

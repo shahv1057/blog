@@ -3,9 +3,9 @@ title: "NFL Play Predictive Analysis"
 date: "2020-02-20"
 ---
 
-![playsheet](/Plots/payton-playsheet-375.jpg "Logo Title Text 1")
+![](/Plots/payton-playsheet-375.jpg "Logo Title Text 1")
 
-### Intro
+<h1> Introduction </h1>
 
 I have been learning a lot recently about different machine learning classification algorithims. Classification is an extremely useful supervised learning tool in data science and machine learning for analyzing  examples and fitting them into preselected bins/categories. There are a variety of classification algorithims out there today, including logistic regression, decision trees, support vectors machines, Naive Bayes, and more. 
 

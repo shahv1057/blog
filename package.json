@@ -35,7 +35,8 @@
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
     "typography-theme-alton": "^0.16.19",
-    "typography-theme-fairy-gates": "^0.16.19"
+    "typography-theme-fairy-gates": "^0.16.19",
+    "typography-theme-ocean-beach": "^0.16.19"
   },
   "devDependencies": {
     "prettier": "^1.19.1"

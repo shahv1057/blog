@@ -2,8 +2,8 @@
 title: "The Monty Hall Problem"
 date: "2020-04-17"
 ---
-![debatepic](/Plots/MontyHallgoat.jpg "Logo Title Text 1")  
-## Introduction
+![](/Plots/MontyHallgoat.jpg "Goat")  
+<h1> Introduction </h1>
 
 This post isn't exactly "Data Science". However, it does deal with math and probability, and is a pretty ideal example of math overtaking seemingly simple intuition. Here's my take on the Monty Hall Problem:
 
@@ -17,7 +17,7 @@ The Monty Hall problem is based on a game show situation. Let's start by explain
 - The contestant chooses a door hoping to pick the door with the new car
 - The game show Host then checks the other two doors and opens one of them to reveal a goat
 
-![debatepic](/Plots/MontyHalldoors.jpg "Logo Title Text 1")  
+![Doors](/Plots/MontyHalldoors.jpg "Doors")  
 
 The Host then asks the contestant if he or she would like to stick with the door originally chosen, or switch to the other unopened door.
 <br><br/>

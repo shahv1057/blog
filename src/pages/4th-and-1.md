@@ -3,7 +3,7 @@ title: "4th and 1"
 date: "2020-02-14"
 ---
 
-### Intro/Motivation
+<h1> Introduction </h1>
 
 4th Down. 1 yard to the endzone. ~30 seconds left in the half of the Super Bowl. The Philadelphia Eagles have a choice to either kick a relatively easy field goal and take 3 points, or go for the touchdown and risk coming away with nothing before the half.
 

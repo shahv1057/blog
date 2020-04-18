@@ -4,7 +4,7 @@ import SEO from "./seo"
 import SocialIcons from "./SocialIcons"
 
 const ListLink = props => (
-  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+  <li style={{ display: `inline-block`, marginRight: `2rem` }}>
     <Link to={props.to}>{props.children}</Link>
   </li>
 )
@@ -24,20 +24,21 @@ export default ({ children, title = undefined }) => {
   )
 
   return (
-    <div style={{ margin: `3rem auto`, maxWidth: 650, padding: `0 1rem` }}>
+    <div style={{ margin: `3rem auto`, maxWidth: 1200, padding: `0 1em` }}>
       <SEO
         title={title || data.site.siteMetadata.title}
         description={data.site.siteMetadata.description}
       />
-      <header style={{ marginBottom: `1.5rem` }}>
-        <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-          <h3 style={{ display: `inline`, color: "black" }}>
+      <header style={{ marginBottom: `3rem` }}>
+        <Link to="/" style={{ textShadow: `grey 1px 0 5px`, backgroundImage: `none`}}>
+          <h1 style={{ display: `inline`, color: "black" }}>
             {data.site.siteMetadata.title}
-          </h3>
+          </h1>
         </Link>
 
-        <ul style={{ listStyle: `none`, float: `right` }}>
+        <ul style={{ listStyle: `none`, float: `right` ,border: `none`,fontSize: "medium"}}>
           <ListLink to="/">Home</ListLink>
+          <ListLink to="/">Blog</ListLink>
           <ListLink to="/about">About</ListLink>
         </ul>
         <SocialIcons />
