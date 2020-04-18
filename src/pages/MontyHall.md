@@ -59,19 +59,23 @@ Let's start at the beginning.
 
 ### <span style="color:blue">Option A: Contestant **Stays**</span>
 
-**Situation 1a:** The contestant chooses the car. 
+**Situation 1a:** The contestant chooses the car
 
-The other two doors both have goats. As a result, the host opens either of the two remaining doors, revealing a goat. The contestant **stays**, and ultimately <span style="color:blue">wins the car</span>.
+- The host reveals either of the goats behind the other two doors
+- You decide to **stay**
+- <span style="color:blue">You win the car!</span>
 
 **Situation 2a:** The contestant chooses goat 1
 
-One of the remaining doors has goat 2 and one has the car. The host opens the door revealing goat 2. The contestant **stays**, and ultimately <span style="color:red">does not win the car</span>.
-
+- The host reveals the door with goat 2
+- You decide to **stay**
+- <span style="color:red">You do not win the car</span>
 
 **Situation 3a:** The contestant chooses goat 2
 
-One of the remaining doors has goat 1 and one has the car. The host opens the door revealing goat 1.
-The contestant **stays**, and ultimately <span style="color:red">does not win the car</span>.
+- The host reveals the door with goat 1
+- You decide to **stay**
+- <span style="color:red">You do not win the car</span>
 
 ![debatepic](/Plots/MontyHallstay.png "Logo Title Text 1")  
 
@@ -79,17 +83,22 @@ The contestant **stays**, and ultimately <span style="color:red">does not win th
 
 **Situation 1b:** The contestant chooses the car. 
 
-In this situation, the other two doors both have goats. As a result, the host opens either of the two remaining doors, revealing a goat. The contestant **switches** to the other unopened door, and ultimately <span style="color:red">does not win the car</span>.
+- The host reveals either of the goats behind the other two doors
+- You **switch** doors
+- <span style="color:red">You do not win the car</span>
 
 **Situation 2b:** The contestant chooses goat 1
 
-In this situation, one of the remaining doors has goat 2 and one has the car. The host opens the door revealing goat 2. The contestant **switches** to the other unopened door, and ultimately <span style="color:blue">wins the car</span>.
+- The host reveals the door with goat 2
+- You **switch** doors
+- <span style="color:blue">You win the car!</span>
 
 
 **Situation 3b:** The contestant chooses goat 2
 
-In this situation, one of the remaining doors has goat 2 and one has the car. The host opens the door revealing goat 1.
-The contestant **switches** to the other unopened door, and ultimately <span style="color:blue">wins the car</span>.
+- The host reveals the door with goat 1
+- You **switch** doors
+- <span style="color:blue">You win the car!</span>
 
 ![debatepic](/Plots/MontyHallswitch.png "Logo Title Text 1")  
 
@@ -114,7 +123,8 @@ Here are the key steps to understanding the Monty Hall puzzle:
 - Math always wins
 
 
-**THANKS FOR READING!**
+<br><br/>
+## THANKS FOR READING!
 
 
 

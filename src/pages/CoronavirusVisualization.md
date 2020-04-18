@@ -1,5 +1,5 @@
 ---
-title: "Coronavirus Visualization"
+title: "COVID-19"
 date: "2020-04-02"
 ---
 #
