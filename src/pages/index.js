@@ -50,7 +50,7 @@ export default ({ data }) => {
                     — {node.frontmatter.date}
                   </span>
                 </h3>
-                <p>{node.excerpt}</p>
+                <p>{node.description}</p>
               </Link>
             </div>
           ))}
@@ -68,7 +68,7 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "MMMM DD, YYYY")
             draft
           }
           fields {

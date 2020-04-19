@@ -1,6 +1,7 @@
 ---
 title: "The Monty Hall Problem"
 date: "2020-04-17"
+description: "What is this problem and why does it matter?"
 ---
 ![](/Plots/MontyHallgoat.jpg "Goat")  
 <h1> Introduction </h1>
