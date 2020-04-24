@@ -5,9 +5,15 @@ date: "2020-04-02"
 
 <h1> Introduction </h1>
 
-As of April 20th, there have been **805,771 cases** and **40,316 deaths** in the United States of America from COVID-19. After beginning its spread through Washington and California in early March, the virus has quickly spread throughout the country, ultimately finding its epicenter in New York City, the most densely populated area in the country. The visualizations below exhibit the areas more and less inflicted by the virus, and specifically which states and counties the virus has spread through over the course of March and now April.
+As of April 23th, there have been **834,340 cases** and **42,501 deaths** in the United States of America from COVID-19. After beginning its spread through Washington and California in early March, the virus has quickly spread throughout the country, ultimately finding its epicenter in New York City, the most densely populated area in the country. The visualizations below exhibit the areas more and less inflicted by the virus, and specifically which states and counties the virus has spread through over the course of March and now April.
 
-## State Data
+# Country Data
+
+#### New Cases/Deaths
+
+![](/Plots/COVIDPlots/newcasesdeaths.png "Logo Title Text 1") 
+
+# State Data
 ![](/Plots/COVIDPlots/statecasesmap.png "Logo Title Text 1")  
 ![](/Plots/COVIDPlots/statedeathsmap.png "Logo Title Text 1")
 #### (% of Total U.S. Cases)
@@ -16,12 +22,15 @@ As of April 20th, there have been **805,771 cases** and **40,316 deaths** in the
 ![debatepic](/Plots/COVIDPlots/ST-bar-ani.gif "Logo Title Text 1")
 
 
-## County Data
 
+# County Data
+
+#### Geographic
+![debatepic](/Plots/COVIDPlots/MapAnimations/counties_outlines.gif "Logo Title Text 1")
+#### Numerical
 ![debatepic](/Plots/COVIDPlots/CTY-bar-ani.gif "Logo Title Text 1")
 
 
-![debatepic](/Plots/COVIDPlots/MapAnimations/counties_outlines.gif "Logo Title Text 1")
 
 
 #### County & State

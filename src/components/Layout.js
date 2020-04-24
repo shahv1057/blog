@@ -24,7 +24,7 @@ export default ({ children, title = undefined }) => {
   )
 
   return (
-    <div style={{ margin: `3rem auto`, maxWidth: 1200, padding: `0 1em` }}>
+    <div style={{ margin: `3rem auto`, maxWidth: 1000, padding: `0 1em` }}>
       <SEO
         title={title || data.site.siteMetadata.title}
         description={data.site.siteMetadata.description}
