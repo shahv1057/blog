@@ -5,13 +5,13 @@ date: "2020-02-20"
 
 ![](/Plots/payton-playsheet-375.jpg "Logo Title Text 1")
 
-<h1> Introduction </h1>
+<h2> Introduction </h2>
 
 I have been learning a lot recently about different machine learning classification algorithims. Classification is an extremely useful supervised learning tool in data science and machine learning for analyzing  examples and fitting them into preselected bins/categories. There are a variety of classification algorithims out there today, including logistic regression, decision trees, support vectors machines, Naive Bayes, and more. 
 
 In this post, I will be diving into **Random Forest Classification**. I am going to use a random forest classifier to build a predictive analysis model on NFL Play-By-Play data from 2009-2018. My model will input a play situation, including variables such as time, down, yards to go, score, etc., and output a play type prediction.
 
-### Motivation
+## Motivation
 
 The power to predict play types in the NFL would be an incredible advantage, both from the offensive and defensive perspectives.
 
@@ -19,7 +19,7 @@ The power to predict play types in the NFL would be an incredible advantage, bot
 
 **Defenses:** Use predictive analyses to understand opposing offenses and build defensive schemes specific to disrupt set offensive plays.
 
-### Data
+## Data
 
 I will be using Max Horowitz's [NFL 2009-2018 Play-By-Play dataset](https://www.kaggle.com/maxhorowitz/nflplaybyplay2009to2016) from Kaggle and analyzing the data on Python. I will be utilizing various Python data science and machine learning packages to supplement my analyses.
 
@@ -33,7 +33,7 @@ import fastai
 %matplotlib inline
 ```
 
-### Cleaning/Feature Engineering
+## Cleaning/Feature Engineering
 A computer cannot understand words like 'punt' or 'pass'. Therefore, I need to transform my data into an all-numeric data set to effectively utilize sklearn's Random Forest Classifier algorithim. In order to transform my current data, I'm going to need to define, adjust, and clean my data.
 
 #### Variables
@@ -71,14 +71,14 @@ After identifying my variables and features, I need to encode my categorical var
 
 Next, I fill all _NaNs_ in game/half seconds remaining. These empty cells seem to be some kind of collection error, but can be filled in fairly easily using the a combination of the "quarter", and "quarter seconds remaining" variables. This is a necessary step of cleaning my data to avoid errors on missing data.
 
-### Preprocessing
+## Preprocessing
 I split my data up into training set, validation set, and test set. I will train my algorthim on the training set, validate it works and adjust the parameters of my algorithim on the validation set, and the ultimately see its utility on the test set.
 
 - Training set: 2009-2016
 - Validation set: 2017
 - Test set: 2018
 
-### Baseline
+## Baseline
 
 To evaluate the performance of my algorithim, I need a baseline accuracy to compare with. This is essential to my analysis, because accuracy is a relative meaure. Achieving 90% accuracy seems successful, but is useless if a random guessing baseline yields 95% accuracy.
 
@@ -86,7 +86,7 @@ To evaluate the performance of my algorithim, I need a baseline accuracy to comp
 
 As seen above, more than 180,000 of my almost 350,000 plays are _pass_ plays. Therefore, I will be using the baseline of predicting every play as a _pass_ play. This incredibly simple prediction model achieves a 52% accuracy score. Lets see how much I can improve on that.
  
-### What is a Random Forest Classifier?
+## What is a Random Forest Classifier?
 
 A great question. In fact, its the most important question to this whole analysis. **A random forest classifier** is a complex machine learning classification algorithim composed of several much simpler, intuitive decision trees. 
 
@@ -110,7 +110,7 @@ The key to the random forest model is a concept coined **Bagging**, or more form
 
 As shown above, each tree outputs a prediction, and the class with the most predictions is considered the final prediction. In a 10-tree forest, if 3 trees predict run, 1 tree predicts pass, and 6 trees predict field goal, The final prediction will be field goal for that particular play given the play's situation features.
 
-### Parameters
+## Parameters
 
 I will be using the RandomForestClassifier function from the sklearn.ensemble package. The package offers a variety of useful parameters that allow me to tailor my classification.
 
@@ -122,7 +122,7 @@ Below is my unofficial descriptions of some of the key parameters:
 - min samples split: Minimum samples at which to no longer split data subset
 
 
-### Algorithim
+## Algorithim
 
 I'm (finally) all ready to run the algorithim.
 
@@ -133,18 +133,14 @@ m = RandomForestClassifier(n_estimators=50,criterion='entropy',n_jobs=-1,max_dep
 clf = m.fit(X_train, y_train)
 ```
 
-Then, I build a NumPy array of predictions using the predict method on my X validation set.
-
-```
-preds = m.predict(X_valid)
-```
+Then, I build a NumPy array of predictions using the   `m.predict(X_valid)`   method on my X validation set.
 
 Lastly, I compare the predictions to the true y_validation set and output an accuracy score to evaluate my algorithim. Here's a view of my full validation set with each row representing a play with a True yvalid value and corresponding prediction y value:
 
 ![alt text](/Plots/predsdf1.png "Logo Title Text 1")
 ![alt text](/Plots/predsdf2.png "Logo Title Text 1")
 
-### Results
+## Results
 
 The algorithim worked well! Compared to the 52% baseline, the model delivered 72.35% accuracy, improving on the baseline by almost 20 basis points!
 
@@ -166,7 +162,7 @@ Here are my accuracies separated by play:
 
 My algorithim did very well classifying punts and field goals. However, it clearly has the most trouble interchanging running and passing plays.
 
-### Areas for Further Improvement
+## Areas for Further Improvement
 
 My algorithim worked well, but there were a few areas of potential adjustment and further research that could yield improved results.
 

@@ -6,7 +6,7 @@ description: "What is this problem and why does it matter?"
 ![](/Plots/MontyHallgoat.jpg "Goat")  
 <h1> Introduction </h1>
 
-This post isn't exactly "Data Science". However, it does deal with math and probability, and is a pretty ideal example of math overtaking seemingly simple intuition. Here's my take on the Monty Hall Problem:
+This post isn't exactly "Data Science". However, it does deal with math and probability, and is an ideal example of statistics and probability rebuking seemingly simple intuition. Here's my take on the Monty Hall Problem:
 
 
 
@@ -38,7 +38,7 @@ Well... that was my first thought. It just doesn't make sense. How would your od
 
 It turns out that if you switch, you actually have a **66.6%** chance of winning the car. This statistical illusion is rooted in the information gained when the Host reveals a door with a goat.
 
-Don't believe it? Try it for yourself [here](https://www.mathwarehouse.com/monty-hall-simulation-online/). Either play for yourself, or run the simulator over a large number of times and look the results. The numbers don't lie!
+Don't believe it? Try it for yourself [here](https://www.mathwarehouse.com/monty-hall-simulation-online/). Either pick doors and see how often you win, or run the simulator and check out the results. The numbers don't lie!
 
 Let's take a look at the math and see where our intuition goes wrong.
 
@@ -46,7 +46,7 @@ Let's take a look at the math and see where our intuition goes wrong.
 
 Let's start at the beginning.
 
-- Let's say you are the contestant. You choose a door and have a **33.3%** chance (1 in 3) of choosing the door with the car behind it
+- Let's say you are the contestant. You have no clue which door has what. You randomly choose a door and have a **33.3%** chance (1 in 3) of choosing the door with the car behind it
 
 - Three situations arise:
     1) You choose the car
@@ -111,9 +111,9 @@ Ok, you've seen the probabilities, the math, and the diagrams. You accept that t
 
 The change in probability occurs when the Host (who knows where the car is) chooses to open a door with a goat. This creates a new mathematical situation by which the Contestant can make a choice.
 
-When the Contestant first chooses a door, he or she has no information. Three choices and no information leads to a mathematically random choice, and a 1/3 probability of selecting the car
+When the Contestant first chooses a door, he or she has no information. Three choices and no information leads to a mathematically random choice, and a 1/3 probability of selecting the car.
 
-When the Contestant is given the choice to switch, there is two choices. However, unlike the first time, there is mathematical information to be used in this situation. The concrete information that the Host filtered out **a goat** gives you an extra 16.6% of chance of winning and turns a random 50/50 guess into a chance to up your odds.
+When the Contestant is given the choice to switch, there is two choices. However, unlike the first time, there is mathematical information to be used in this situation. The concrete information that the Host filtered out **a goat** gives you an extra 16.6% of chance of winning and turns a random 50/50 guess into an clear choice to switch doors.
 
 ## Summary
 
