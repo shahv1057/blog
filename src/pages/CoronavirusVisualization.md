@@ -5,7 +5,7 @@ date: "2020-04-02"
 
 <h1> Introduction </h1>
 
-As of April 26th, there have been **965,214 cases** and **49,465 deaths** in the United States of America from COVID-19. After beginning its spread through Washington and California in early March, the virus has quickly spread throughout the country, ultimately finding its epicenter in New York City, the most densely populated area in the country. The visualizations below exhibit the areas more and less inflicted by the virus, and specifically which states and counties the virus has spread through over the course of March and now April.
+As of April 27th, there have been **987,690 cases** and **50,819 deaths** in the United States of America from COVID-19. After beginning its spread through Washington and California in early March, the virus has quickly spread throughout the country, ultimately finding its epicenter in New York City, the most densely populated area in the country. The visualizations below exhibit the areas more and less inflicted by the virus, and specifically which states and counties the virus has spread through over the course of March and now April.
 
 # Country Data
 
