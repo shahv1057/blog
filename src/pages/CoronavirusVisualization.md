@@ -5,7 +5,7 @@ date: "2020-04-02"
 
 <h1> Introduction </h1>
 
-As of May 11th, there have been **1,291,528 cases** and **77,309 deaths**   recorded in the United States of America as a result of COVID-19. After beginning its spread through Washington and California in early March, the virus has quickly spread throughout the country, ultimately finding its epicenter in New York City, the most densely populated area in the country. The visualizations below exhibit the areas more and less inflicted by the virus, and specifically which states and counties the virus has spread through over the course of March, April, and now May.
+As of May 11th, there have been **1,352,350 cases** and **80,683 deaths**   recorded in the United States of America as a result of COVID-19. After beginning its spread through Washington and California in early March, the virus has quickly spread throughout the country, ultimately finding its epicenter in New York City, the most densely populated area in the country. The visualizations below exhibit the areas more and less inflicted by the virus, and specifically which states and counties the virus has spread through over the course of March, April, and now May.
 
 # Country Data
 
