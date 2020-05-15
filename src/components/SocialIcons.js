@@ -22,6 +22,7 @@ export default () => (
       rel="noopener noreferrer"
       style={{
         borderBottom: "none",
+        backgroundImage: "none",
       }}
     >
       <FaInstagram
