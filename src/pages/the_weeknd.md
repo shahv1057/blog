@@ -5,7 +5,7 @@ date: "2020-02-22"
 
 ![](/Plots/weekndpic.jpg "Him singing")
 
-<h1> Introduction </h1>
+<h2> Introduction </h2>
 
 The Weeknd has had an incredible amount of success over the last few years. Songs like "Earned It", "The Hills", "Can't Feel My Face", "Starboy", "I Feel It Coming", and many more songs have dominated top charts on popular streaming services like Spotify and Apple Music. His mix of Pop, Hip Hop, and R&B has clearly left a mark.
 
@@ -54,7 +54,7 @@ import wordcloud
 import sklearn
 ```
 
-### Import Data :notes:
+### Import Data
 
 First step is to collect my data. Using the _PyLyrics_ package, a program written with the specific purpose of retrieving lyrics, I imported all the The Weeknd's song lyrics into my Jupyter Notebook.
 
@@ -70,14 +70,14 @@ Above is a snippet of the code I ran to acquire lyrics for every song in an albu
 
 ### Organize Data
 
-My next step is to concatenate all lyrics and organize the songs into a Pandas DataFrame. After collection and intital organization, the DataFrame looked like this:
+My next step is to concatenate all lyrics and organize the songs into a Pandas DataFrame. After collection and intital organization, the top and bottom of the DataFrame looked like this:
 
 ![debatepic](/Plots/weeknd_df_head.png "Logo Title Text 1")
 ![debatepic](/Plots/weeknd_df_tail.png "Logo Title Text 1")
 
 ### Clean Data
 
-Clean text data is essential to Natural Language Processing. chose to requires punctuation-free, lowercase text to standardize analysis. To make these changes, I built a simple data cleaning function:
+Clean text data is essential to Natural Language Processing. I chose to convert lyrics to punctuation-free, lowercase text to standardize my analysis. To make these changes, I built a simple data cleaning function:
 
 ```
 def clean_data(series):
@@ -87,7 +87,7 @@ def clean_data(series):
     return series
 ```
 
-To paint a picture, this function perform the following transformation to this excerpt from the Weeknd's hit song, Starboy:
+To paint a picture, this function performs the following transformation to this excerpt from the Weeknd's hit song, Starboy:
 
 
 **INPUT:**
@@ -108,7 +108,9 @@ Ok, at this point I have a Pandas Dataframe with columns for Album, Song, and Ly
 
 Next, I need to engineer some new columns from my data to have more interesting variables to analyze.
 
-This is where some project-relevant thought comes in. What features can I engineer from my data? What new variables could be particularly interesting, or perhaps shed light on interesting trends? Are there other variables relevant to songs that could be imported in to do further research?
+This is where some project-relevant thought comes in. What features can I engineer from my data? What new variables shed light on interesting trends or strike me as important?
+
+Here are some of my thoughts:
 
 #### Word Counts
  - How many times does The Weeknd say "Starboy" in the song "Starboy"?
