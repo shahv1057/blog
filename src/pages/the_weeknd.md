@@ -1,5 +1,5 @@
 ---
-title: "Has the Weeknd's music changed? An analytical look into his music over the years" 
+title: "Has the Weeknd's music changed? An analytical look into his music over the years"
 date: "2020-02-22"
 ---
 
@@ -24,26 +24,29 @@ My goal is to collect, clean, and organize The Weeknd's lyrics in Python, and su
 There are several steps that need to be taken before NLP analyses can even begin. Here's a broad overview of my key steps:
 
 ##### Preprocessing
+
 - Import Python Packages
-    - Pandas, NumPy, Matplotlib, Wordcloud, nltk, re, string, sklearn
+  - Pandas, NumPy, Matplotlib, Wordcloud, nltk, re, string, sklearn
 - Import Data
-    - Lyrics from The Weeknd's four released albums: Kiss Land, Trilogy, Beauty Behind the Madness, and Starboy
+  - Lyrics from The Weeknd's four released albums: Kiss Land, Trilogy, Beauty Behind the Madness, and Starboy
 - Organize Data
-    - Fit data into a Pandas DataFrame
+  - Fit data into a Pandas DataFrame
 - Clean Data
-    
 - Feature Engineer Relevant Variables
 
 ##### Text Analysis
-##### Results
-##### Visualizations
-##### Conclusions
-##### Areas for Further Research
 
+##### Results
+
+##### Visualizations
+
+##### Conclusions
+
+##### Areas for Further Research
 
 ### Import Python Packages
 
-```
+```python
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -58,7 +61,7 @@ import sklearn
 
 First step is to collect my data. Using the _PyLyrics_ package, a program written with the specific purpose of retrieving lyrics, I imported all the The Weeknd's song lyrics into my Jupyter Notebook.
 
-```
+```python
 from PyLyrics import *
 starboy = ["Starboy","Party Monster","False Alarm","Reminder",...,"I Feel It Coming"]
 wknd = 'The_Weeknd'
@@ -79,7 +82,7 @@ My next step is to concatenate all lyrics and organize the songs into a Pandas D
 
 Clean text data is essential to Natural Language Processing. I chose to convert lyrics to punctuation-free, lowercase text to standardize my analysis. To make these changes, I built a simple data cleaning function:
 
-```
+```python
 def clean_data(series):
     series = series.str.replace('[(),.?]','')
     series = series.str.replace('-|\s+',' ')
@@ -89,14 +92,15 @@ def clean_data(series):
 
 To paint a picture, this function performs the following transformation to this excerpt from the Weeknd's hit song, Starboy:
 
-
 **INPUT:**
-```
+
+```text
 "I'm tryna put you in the worst mood, ah\nP1 cleaner than your church shoes, ah\nMilli point two just to hurt you, ah\nAll red Lamb' just to tease you, ah\n\nNone of these toys on lease too, ah\nMade your whole year in a week too, yah\nMain bitch out of your league too, ah\nSide bitch out of your league too
 ```
 
 **OUTPUT**
-```
+
+```text
 "i'm tryna put you in the worst mood ah cleaner than your church shoes ah milli point two just to hurt you ah all red lamb' just to tease you ah none of these toys on lease too ah made your whole year in a week too yah main bitch out of your league too ah side bitch out of your league too
 ```
 
@@ -113,36 +117,28 @@ This is where some project-relevant thought comes in. What features can I engine
 Here are some of my thoughts:
 
 #### Word Counts
- - How many times does The Weeknd say "Starboy" in the song "Starboy"?
- - How often does he curse? 
- - What are his most popular words in each of his albums?
+
+- How many times does The Weeknd say "Starboy" in the song "Starboy"?
+- How often does he curse?
+- What are his most popular words in each of his albums?
 
 #### Topic Modeling
- - What are The Weeknd's most popular song topics?
+
+- What are The Weeknd's most popular song topics?
 
 #### Vocabulary
- - How extensive is The Weeknd's vocabulary?
- - Has his common vocabulary expanded or changed in any way over time?
- - How many unique words does he use in each song? Could that be a potential measure for song repetitiveness?
+
+- How extensive is The Weeknd's vocabulary?
+- Has his common vocabulary expanded or changed in any way over time?
+- How many unique words does he use in each song? Could that be a potential measure for song repetitiveness?
 
 #### Streams
- - How many streams does each of the Weeknd's songs have? 
- - Are there interesting correlations between a song's stream counts, and other variables in our dataset?
+
+- How many streams does each of the Weeknd's songs have?
+- Are there interesting correlations between a song's stream counts, and other variables in our dataset?
 
 #### Part-of-Speech Tagging
- - Is their significant difference between albums or songs in parts-of-speech tagging?
- - Verb tense differences? Future looking songs as opposed to past reminiscing songs?
- - Most popular nouns?
- 
 
-
-
-
-
-
-
-
-
-
-
-
+- Is their significant difference between albums or songs in parts-of-speech tagging?
+- Verb tense differences? Future looking songs as opposed to past reminiscing songs?
+- Most popular nouns?
