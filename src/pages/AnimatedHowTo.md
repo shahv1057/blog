@@ -78,14 +78,21 @@ repeat_delay: If the animation in repeated, adds a delay in milliseconds before 
 
 
 You can save your animation as a .mov, .mp4, or .gif file in your local path. Your animation function should look something like:
+
 ```python
-anim = matplotlib.animation.FuncAnimation(fig=fig, func=update, 
-                                        frames=date_list, interval=1000, 
-                                        repeat=True, repeat_delay=2000
-                                        )
+anim = matplotlib.animation.FuncAnimation(
+    fig=fig, 
+    func=update, 
+    frames=date_list, 
+    interval=1000, 
+    repeat=True, 
+    repeat_delay=2000
+)
 
 anim.save(local_path+'myanim.gif')
 ``` 
+
+
 
 
 
