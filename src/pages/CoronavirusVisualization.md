@@ -35,3 +35,8 @@ As of May 29th, there have been more than **1.7 million cases** and **100 thousa
 
 #### County & State
 ![debatepic](/Plots/COVIDPlots/STandCTY-bar-ani.gif "Logo Title Text 1")
+
+<div>
+    <a href="https://plotly.com/~shahv1057/1/" target="_blank" title="gdp_per_cap" style="display: block; text-align: center;"><img src="https://plotly.com/~shahv1057/1.png" alt="gdp_per_cap" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plotly.com/404.png';" /></a>
+    <script data-plotly="shahv1057:1" src="https://plotly.com/embed.js" async></script>
+</div>
