@@ -5,20 +5,20 @@ date: "2020-07-07"
 
 <h1> Introduction </h1>
 
-My music choices and preferences have always been a direct indicator of my current activity, mood, and emotional state. These choices include upbeat hip-hop songs while working out, soft pop music while I'm feeling moody or down, or something in between while working on my data science projects. 
+
+My music choices and preferences have always been a direct indicator of my current activity, mood, and emotional state. I choose upbeat hip-hop songs while working out, soft pop music while I'm feeling moody or down, or something in between while working on my data science projects. This project is an attempt to use Machine Learning to identify those moods and build corresponding playlists for each.
 
 # Project Outline
 
 This project has 4 different parts:
 
-1) **Obtain Spotify Data**: Use the Spotify API to obtain all my music listening data from the past year
+1) **Obtain Spotify Data**: Use the Spotify API to obtain all my music listening data from the past year.
 
-2) **Music Taste Analysis**: A deep dive into my song, artist, and album preferences and how these preferences have fluctuated over the months
+2) **Music Taste Analysis**: A deep dive into my song, artist, and album preferences and how these preferences have fluctuated over the year.
 
-3) **Mood Prediction**: I take a look at audio features such as the acousticness, tempo, and instrumentalness of my song preferences and utilize the KMeans Clustering unsupervised learning algorithim to stratify my music into different, identifiable moods
+3) **Mood Prediction**: I take a look at audio features such as the *acousticness*, *tempo*, and *instrumentalness* of my song preferences and utilize the K-Means Clustering algorithim to stratify my music into different, identifiable moods.
 
-4) **Playlist Curation**: Develop custom mood-specific Spotify playlists based on my music preferences and mood stratifications from the last two parts
-
+4) **Playlist Curation**: Develop custom mood-specific Spotify playlists based on my music preferences and mood stratifications from the last two parts.
 
 
 # Obtaining Spotify Data
@@ -53,12 +53,10 @@ for song in songid:
                                     "loudness":features['loudness'],
                                     "valence":features['valence'],
                                  },ignore_index=True)
-    else:
-        pass
 ```
 
 
-The audio features loaded from the Spotify API will be central to my analysis and mood clustering of my music preferences. Attributes like ***danceability*** and ***energy*** capture differences between faster and slower paced music, while ***speechiness*** quantifies each song's focus on words. Additionally, I include each song's ***acousticness***, as well as it ***valence*** (high *valence* is positive/happy/euphoric music, low *valence* is dark/angry/sad music). A complete list of attributes and corresponding definitions can be found [here](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/).
+The audio features loaded from the Spotify API will be central to my analysis and mood clustering of my music preferences. Attributes like ***danceability*** and ***energy*** capture differences between faster and slower paced music, while ***speechiness*** quantifies each song's focus on words. A high ***valence*** indicates positive/happy/euphoric music while low *valence* quantifies dark/angry/sad music. A complete list of attributes and corresponding definitions can be found [here](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/).
 
 
 # My Music Taste Analysis
@@ -68,6 +66,7 @@ To best display and understand my data, I utilized the ```Plotly``` package for 
 ## Top Songs
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/34.embed"></iframe>
+
 
 ## Top Artists
 
@@ -99,7 +98,7 @@ The K-Means clustering algorithim is one of the most popular (and perhaps most i
 
 This algorithim works very well, on the basis of choosing a number of centroids that represents the data. There are a few methods to choosing a number of clusters, and in this project I use the [elbow method](https://www.scikit-yb.org/en/latest/api/cluster/elbow.html), choosing the number of clusters at the knee of the graph of clusters x inertia (sum of squared distance)
 
-I run the sklearn Kmeans algorithim on my data set and ultimately choose 4 clusters based on the graph
+I run the sklearn K-Means algorithim on my data set and ultimately choose 4 clusters based on the graph
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/49.embed"></iframe>
 
@@ -107,7 +106,7 @@ I run the sklearn Kmeans algorithim on my data set and ultimately choose 4 clust
 
 Now that I have an algorithim and process down, I begin the preprocessing of my data! To capture my true preferences, as opposed to songs I listened to for a minute and never again, I filter down my data to songs that I have listened to for more than 15 minutes in the past year.
 
-#### Dataframe Screenshot
+#### Dataframe Sample
 <style type="text/css">
 .tg  {border-collapse:collapse;border-color:#9ABAD9;border-spacing:0;}
 .tg td{background-color:#EBF5FF;border-bottom-width:1px;border-color:#9ABAD9;border-style:solid;border-top-width:1px;
@@ -229,8 +228,8 @@ The first thing I noticed about each feature is that the distributions are all a
 
 A few impressions of the data:
 
-- The ***instrumentalness*** has almost exclusively low values in my dataset. This makes sense has I listen to a lot of lyrical music and very few genres that have high instrumentalness like jazz, rock, or heavy metal.
-- The ***speechiness*** features are  heavily skewed toward lower values. This generally makes sense, as high levels of speechiness include podcasts, speeches, and other spoken word, none of which I listen to.
+- **Low** ***instrumentalness*** has almost exclusively low values in my dataset. This makes sense has I listen to a lot of lyrical music and very few genres that have high instrumentalness like jazz, rock, or heavy metal.
+- **Low** ***speechiness*** features are  heavily skewed toward lower values. This generally makes sense, as high levels of speechiness include podcasts, speeches, and other spoken word, none of which I listen to.
 - The ***acousticness*** features are also heavily skewed toward lower values. This also makes sense, as I listen to a lot of Hip Hop, Rap, and R&B music that usually does not feature acoustic instruments or sounds.
 - The ***energy***, ***danceability***, and ***loudness*** features all have similar, slight skewed distributions, which makes a lot of sense because of the inherent similarities of the features.
 - The ***valence*** and ***tempo*** features seems to be most evenly distributed from 0 to 1.
@@ -268,7 +267,7 @@ My algorithim produced the following cluster value counts:
 
 #### PCA
 
-Each song in my dataframe has 8 audio features, which essentially means the data is 8-dimensional. Because data cannot by visualized in 8 dimensions, I used a common dimensionality reduction technique called [Principal Component Analysis (PCA)](https://setosa.io/ev/principal-component-analysis/) to essentially "summarize" my data in 2D, PCA works by reducing the dimensionality of the data to 2D in a way that maintains as much of the original variance as possible. This technique allows me to visually explore my labeled, multi-dimensional data on a simple x,y graph.
+Each song in my dataframe has 8 audio features, which essentially means the data is 8-dimensional. Because data cannot by visualized in 8 dimensions, I used a common dimensionality reduction technique called [Principal Component Analysis (PCA)](https://setosa.io/ev/principal-component-analysis/) to essentially "summarize" my data in 2D. PCA works by reducing the dimensionality in a way that maintains as much of the original data's variance as possible. This technique allows me to visually explore my labeled, multi-dimensional data on a simple x,y graph.
 
 Using sklearn's PCA package:
 
@@ -279,7 +278,7 @@ pc = pd.DataFrame(principal_components)
 pc.columns = ['x', 'y','label']
 ```
 
-(It is mportant to note that x,y coordinates are a representation of a combination of my 8 features, but **do not exhibit any direct intuition into the feature values**)
+(It is important to note that x,y coordinates are a representation of a combination of my 8 features, but **do not exhibit any direct intuition into the feature values**)
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/57.embed"></iframe>
 
@@ -326,6 +325,8 @@ I now visualize the feature differences using Seaborn's Heatmap Plot:
 
 
 ### Cluster 0: HYPE mood
+
+![Hype](/Plots/hype.gif "Hype")
 
 Cluster 0 seems to be exciting, fast paced songs with a lot of words. Its audio features are:
 
@@ -385,6 +386,8 @@ A quick random sample immediately confirms that:
 </table>
 
 ### Cluster 1: ANGSTY mood
+
+![angsty](/Plots/angsty.gif "angsty")
 
 Cluster 1 is perhaps the most ambiguous mood cluster. Its audio features are:
 
@@ -447,6 +450,8 @@ Here's a random sample of songs in the cluster:
 
 
 ### Cluster 2: HAPPY mood
+
+![Happy](/Plots/happy.gif "Happy")
 Cluster 2 was similar to Cluster 0 in loudness and energy, though specifically different in speechiness and danceability. Its audio features are:
 
 - Very High Danceability and Valence
@@ -497,6 +502,9 @@ These audio features point to the mood cluster contain a lot of **Upbeat Happy P
 </table>
 
 ### Cluster 3: GLOOMY/EMOTIONAL mood
+
+![Sad](/Plots/sad.gif "Sad")
+
 
 Cluster 3 was probably the easiest mood for me to identify. Here are the audio features:
 

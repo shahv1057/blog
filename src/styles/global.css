@@ -1,7 +1,12 @@
 html {
   background-color: white;
+  line-height: 2;
 }
 a {
   text-decoration: none;
   background-image: none;
 }
+body {
+  line-height: 125%;
+}
+
