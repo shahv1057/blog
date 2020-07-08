@@ -31,32 +31,33 @@ The first step is to obtain the data that will drive the rest of this project. I
 4) Acquired Spotify's audio features for all my songs:
 
 ```python
-client_credentials_manager = SpotifyClientCredentials(client_id=client_id, 
-                                                      client_secret=client_secret)
-sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-
-my_feature = pd.DataFrame(columns=["song_id","energy", "liveness","tempo","speechiness",
-                                "acousticness","instrumentalness","danceability",
-                                "duration_ms","loudness","valence",
-                                "mode","key"])
-
+# Create A Data Frame with Unique Song ID and corresponding song features
+my_feature = pd.DataFrame(columns=[
+    "song_id","energy","tempo","speechiness",
+    "acousticness","instrumentalness","danceability",
+    "loudness","valence"
+    ])
+# For each Song ID in my Spotify-provided listening history,
+# import spotify's audio features in DataFrame
 for song in songid:
     features = sp.audio_features(tracks = [song])[0]
     if features is not None:
-        my_feature = my_feature.append({"song_id":song,
-                                    "energy":features['energy'], 
-                                    "tempo":features['tempo'],
-                                    "speechiness":features['speechiness'],
-                                    "acousticness":features['acousticness'],
-                                    "instrumentalness":features['instrumentalness'],
-                                    "danceability":features['danceability'],
-                                    "loudness":features['loudness'],
-                                    "valence":features['valence'],
-                                 },ignore_index=True)
+        my_feature = my_feature.append({
+            "song_id":song,
+            "energy":features['energy'], 
+            "tempo":features['tempo'],
+            "speechiness":features['speechiness'],
+            "acousticness":features['acousticness'],
+            "instrumentalness":features['instrumentalness'],
+            "danceability":features['danceability'],
+            "loudness":features['loudness'],
+            "valence":features['valence'],
+            },ignore_index=True)
+
 ```
 
 
-The audio features loaded from the Spotify API will be central to my analysis and mood clustering of my music preferences. Attributes like ***danceability*** and ***energy*** capture differences between faster and slower paced music, while ***speechiness*** quantifies each song's focus on words. A high ***valence*** indicates positive/happy/euphoric music while low *valence* quantifies dark/angry/sad music. A complete list of attributes and corresponding definitions can be found [here](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/).
+The audio features loaded from the Spotify API will be central to my analysis and mood clustering of my music preferences. Attributes like ***danceability*** and ***energy*** capture differences between faster and slower paced music, while ***speechiness*** quantifies each song's focus on words. A high ***valence*** indicates positive/happy /euphoric music while low *valence* quantifies dark/angry/sad music. A complete list of attributes and corresponding definitions can be found [here](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/).
 
 
 # My Music Taste Analysis
@@ -65,17 +66,22 @@ To best display and understand my data, I utilized the ```Plotly``` package for 
 
 ## Top Songs
 
+After Hours, by the Weeknd, tops the chart of my most listened to songs of the past year! Even though the song didn't come out till February, I clearly had it on repeat essentially through April. An interesting note about the song is that it is a 6+ minute song, much longer than the average song I listen to (3ish min.) and the measurement variable of "sum minutes listened" rather than "count of times listened" probably worked in its favor.
+
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/34.embed"></iframe>
 
 
 ## Top Artists
 
+Post Malone, or as my dad lovingly calls him "Post Office Malone", came out on top in terms of minutes listened in the past year. There was a pretty constant stream of different Post songs over my last 12 months. In fact, all three of his albums show up on my top 20 albums list of the past year!
+
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/39.embed"></iframe>
 
 ## Top Albums
 
-<iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/41.embed"></iframe>
+The Weeknd's After Hours album tops the chart of top albums of the past year, which makes a lot of sense thinking back to all the days of cycling through the album on repeat while messing around in my Jupyter Notebooks. Recently, you can see that Polo G's "The GOAT" has been occupying much of the Jupyter Notebook-ing time.
 
+<iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/41.embed"></iframe>
 
 # Using K-Means clustering to predict my different music-listening moods
 
@@ -98,7 +104,7 @@ The K-Means clustering algorithim is one of the most popular (and perhaps most i
 
 This algorithim works very well, on the basis of choosing a number of centroids that represents the data. There are a few methods to choosing a number of clusters, and in this project I use the [elbow method](https://www.scikit-yb.org/en/latest/api/cluster/elbow.html), choosing the number of clusters at the knee of the graph of clusters x inertia (sum of squared distance)
 
-I run the sklearn K-Means algorithim on my data set and ultimately choose 4 clusters based on the graph
+I run the ```sklearn``` K-Means algorithim on my data set and ultimately choose 4 clusters based on the graph
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/49.embed"></iframe>
 
@@ -106,7 +112,7 @@ I run the sklearn K-Means algorithim on my data set and ultimately choose 4 clus
 
 Now that I have an algorithim and process down, I begin the preprocessing of my data! To capture my true preferences, as opposed to songs I listened to for a minute and never again, I filter down my data to songs that I have listened to for more than 15 minutes in the past year.
 
-#### Dataframe Sample
+#### Dataframe Snapshot
 <style type="text/css">
 .tg  {border-collapse:collapse;border-color:#9ABAD9;border-spacing:0;}
 .tg td{background-color:#EBF5FF;border-bottom-width:1px;border-color:#9ABAD9;border-style:solid;border-top-width:1px;
@@ -228,11 +234,10 @@ The first thing I noticed about each feature is that the distributions are all a
 
 A few impressions of the data:
 
-- **Low** ***instrumentalness*** has almost exclusively low values in my dataset. This makes sense has I listen to a lot of lyrical music and very few genres that have high instrumentalness like jazz, rock, or heavy metal.
-- **Low** ***speechiness*** features are  heavily skewed toward lower values. This generally makes sense, as high levels of speechiness include podcasts, speeches, and other spoken word, none of which I listen to.
-- The ***acousticness*** features are also heavily skewed toward lower values. This also makes sense, as I listen to a lot of Hip Hop, Rap, and R&B music that usually does not feature acoustic instruments or sounds.
-- The ***energy***, ***danceability***, and ***loudness*** features all have similar, slight skewed distributions, which makes a lot of sense because of the inherent similarities of the features.
-- The ***valence*** and ***tempo*** features seems to be most evenly distributed from 0 to 1.
+- ***Instrumentalness*** is heavily skewed with almost only low values (More lyrical music and electronic beats, less jazz, rock, or heavy metal)
+- ***Speechiness*** is also skewed toward lower values. More music, less podcasts, speeches, and other spoken word.
+- ***Energy***, ***danceability***, and ***loudness*** features all have inherently similar, slightly skewed distributions
+- ***Valence*** and ***tempo*** features seems to be the most evenly distributed from 0 to 1.
 
 #### Preprocessing Summary
 
@@ -243,10 +248,11 @@ A few impressions of the data:
 ## Running the Algorithim
 
 ```python
-# Drop Non-Numeric columns, convert Dataframe to a Numerical Numpy Array
+# Drop non-numeric columns, convert Dataframe to a numerical Numpy array
 X = df.drop(['track_name','artist_name','album'],axis=1).values
 
-# Fit sklearn K-Means algorithim to data
+# Fit data to 4 clusters using the sklearn K-Means algorithim
+from sklearn.cluster import KMeans
 kmeans = KMeans(n_clusters=4,n_jobs=-1).fit(X)
 
 # Predict and label mood for each song in Dataframe
@@ -259,19 +265,20 @@ df['label'] = kmeans_mood_labels
 #### Songs in Each Mood Cluster
 
 My algorithim produced the following cluster value counts:
- - **0**: 128
- - **1**: 204
- - **2**: 199
- - **3**: 100
+ - **Cluster 0**: 128 Songs
+ - **Cluster 1**: 204 Songs
+ - **Cluster 2**: 199 Songs
+ - **Cluster 3**: 100 Songs
 
 
 #### PCA
 
 Each song in my dataframe has 8 audio features, which essentially means the data is 8-dimensional. Because data cannot by visualized in 8 dimensions, I used a common dimensionality reduction technique called [Principal Component Analysis (PCA)](https://setosa.io/ev/principal-component-analysis/) to essentially "summarize" my data in 2D. PCA works by reducing the dimensionality in a way that maintains as much of the original data's variance as possible. This technique allows me to visually explore my labeled, multi-dimensional data on a simple x,y graph.
 
-Using sklearn's PCA package:
+Using ```sklearn```'s PCA package:
 
 ```python
+from sklearn.decomposition import PCA
 pca = PCA(n_components=2)
 principal_components = pca.fit_transform(X)
 pc = pd.DataFrame(principal_components)
@@ -285,41 +292,44 @@ pc.columns = ['x', 'y','label']
 By using PCA, I can see my data much more clearly. As shown in the plot, labels "2" and "3" are pretty well defined with not too much overlap, while labels "0" and "1" have a large amount of overlap.
 
 ```python 
-Input: pca.explained_variance_ratio_ 
+Input: print (pca.explained_variance_ratio_ , sum(pca.explained_variance_ratio_))
 ```
 
 ```python 
-Output: array([0.32387322, 0.22293707])
+Output: array([0.32387322, 0.22293707]), 0.5468
 ```
 
-Using the above PCA attribute, I see that 32% of my data's original variance was explained by the 1st component while 22% is explained by the 2nd.
+Using the above PCA attribute, I see that 32% of my data's original variance was explained by the 1st component while 22% is explained by the 2nd, meaning my PCA reduced the dimensionality the 8 features while maintaining around 54% of the original variance.
 
-Next, I reran my PCA function, this time with three components, using Plotly's 3D Scatter Plot functionality to display my data. The cluster stratifications are much clearer now, with the 3rd component capturing an extra 17.5% of the original data's variance!
+Next, I reran my PCA function, this time with three components, using ```Plotly```'s 3D Scatter Plot functionality to display my data. The cluster stratifications are much clearer now, with the 3rd component capturing an extra 17.5% of the original data's variance. This 3-component transformation of the 8 feature data exhibits a much clear visual cluster distinction while maintaining more than 77% of the original variance.
 
 ```python
 pca = PCA(n_components=3)
 principal_components = pca.fit_transform(X)
 pc = pd.DataFrame(principal_components)
-pc.columns = ['x', 'y','z','label']
+pc.columns = ['x', 'y', 'z', 'label']
 ```
 
 ```python 
-Input: pca.explained_variance_ratio_ 
+Input: print (pca.explained_variance_ratio_ , sum(pca.explained_variance_ratio_))
 ```
 
 ```python 
-Output: array([0.32387322, 0.22293707, 0.17594222])
+Output: array([0.32387322, 0.22293707, 0.17594222]), 0.7226
 ```
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/61.embed"></iframe>
 
 ## Results
 
-Now that I've analysed my mood clusters, I am going to try and define each mood! To do this I am going to summarize of the cluster's audio feature statistics, try to define a respresentative mood, and then look at a sample of the data for manual confirmation.
+Now that I've analysed my mood clusters, I am going to try and define each mood! To do this, I will do the following:
+1) Summarize the cluster's audio feature statistics
+2) Try to define a respresentative mood
+3) Look at a sample of the song data for manual confirmation
 
-First, I scale all of my data features using the sklearn [Standard Scaler](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html). The scaler will transform each audio feature value such that each audio feature has a mean of 0 and variance of 1 across all songs in the feature column. This will allow for a much clearer visualization of comparing features for each cluster.
+First, I scale all of my data features using the ```sklearn``` [Standard Scaler](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html). The scaler will transform each audio feature value such that each audio feature has a mean of 0 and variance of 1 across all songs in the feature column. This will allow for a much clearer visualization of comparing features for each cluster.
 
-I now visualize the feature differences using Seaborn's Heatmap Plot:
+I now visualize the feature differences using ```seaborn```'s heatmap plot:
 
 ![Features](/Plots/featureheatmap.png "Logo Title Text 1")
 
@@ -327,6 +337,7 @@ I now visualize the feature differences using Seaborn's Heatmap Plot:
 ### Cluster 0: HYPE mood
 
 ![Hype](/Plots/hype.gif "Hype")
+
 
 Cluster 0 seems to be exciting, fast paced songs with a lot of words. Its audio features are:
 
@@ -397,7 +408,7 @@ Cluster 1 is perhaps the most ambiguous mood cluster. Its audio features are:
 
 These songs are not particularly positive, but are not instrumental/acoustic sad songs either. The average energy and danceability makes me feel like the cluster's songs are catchy but a little more angsty and not quite as hype as Cluster 0.
 
-These audio features point to the mood cluster contain a lot of **Moody Pop/R&B Songs**.
+These audio features point to the mood cluster containing a lot of **Moody Pop/R&B Songs**.
 Here's a random sample of songs in the cluster:
 
 <style type="text/css">
@@ -452,6 +463,7 @@ Here's a random sample of songs in the cluster:
 ### Cluster 2: HAPPY mood
 
 ![Happy](/Plots/happy.gif "Happy")
+
 Cluster 2 was similar to Cluster 0 in loudness and energy, though specifically different in speechiness and danceability. Its audio features are:
 
 - Very High Danceability and Valence
