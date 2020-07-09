@@ -26,6 +26,7 @@
     "gatsby-plugin-typography": "^2.3.22",
     "gatsby-remark-images": "^3.1.44",
     "gatsby-remark-prismjs": "^3.5.1",
+    "gatsby-remark-table-of-contents": "0.0.9",
     "gatsby-source-filesystem": "^2.1.48",
     "gatsby-transformer-remark": "^2.8.8",
     "plotly.js": "^1.53.0",
