@@ -3,36 +3,40 @@ title: "Building Mood-Based Spotify Playlists using K-Means Clustering"
 date: "2020-07-07"
 ---
 
+<!-- TOC -->
 
-# 1. Table of Contents
-
-<!-- TOC depthTo:2 -->
-
-- [1. Table of Contents](#1-table-of-contents)
-- [2. Introduction](#2-introduction)
-- [3. Project Outline](#3-project-outline)
-- [4. Obtaining Spotify Data](#4-obtaining-spotify-data)
-- [5. My Music Taste Analysis](#5-my-music-taste-analysis)
-    - [5.1. Top Songs](#51-top-songs)
-    - [5.2. Top Artists](#52-top-artists)
-    - [5.3. Top Albums](#53-top-albums)
-- [6. Using K-Means clustering to predict my different music-listening moods](#6-using-k-means-clustering-to-predict-my-different-music-listening-moods)
-    - [6.1. Choose the number of clusters](#61-choose-the-number-of-clusters)
-    - [6.2. Preprocess the Data](#62-preprocess-the-data)
-    - [6.3. Run the Algorithim](#63-run-the-algorithim)
-    - [6.4. Visualize the Results](#64-visualize-the-results)
-    - [6.5. Results](#65-results)
-- [7. Next Steps](#7-next-steps)
-- [8. Next Next Steps](#8-next-next-steps)
+- [Project Outline](#project-outline)
+- [Obtaining Spotify Data](#obtaining-spotify-data)
+- [My Music Taste Analysis](#my-music-taste-analysis)
+    - [Top Songs](#top-songs)
+    - [Top Artists](#top-artists)
+    - [Top Albums](#top-albums)
+- [Using K-Means clustering to predict my different music-listening moods](#using-k-means-clustering-to-predict-my-different-music-listening-moods)
+            - [6.0.0.1. Repeating steps 3-5 until convergence on a 3-cluster, 2D dataset:](#6001-repeating-steps-3-5-until-convergence-on-a-3-cluster-2d-dataset)
+    - [Choose the number of clusters](#choose-the-number-of-clusters)
+            - [6.1.0.2. Clusters x Inertia](#6102-clusters-x-inertia)
+    - [Preprocess the Data](#preprocess-the-data)
+            - [6.2.0.3. Dataframe Snapshot](#6203-dataframe-snapshot)
+            - [6.2.0.4. Data Distributions](#6204-data-distributions)
+    - [Run the Algorithim](#run-the-algorithim)
+    - [Visualize the Results](#visualize-the-results)
+            - [6.4.0.5. PCA - 2D](#6405-pca---2d)
+            - [6.4.0.6. PCA - 3D](#6406-pca---3d)
+    - [Results](#results)
+        - [6.5.1. Cluster 0: HYPE mood](#651-cluster-0-hype-mood)
+        - [6.5.2. Cluster 1: ANGSTY mood](#652-cluster-1-angsty-mood)
+        - [6.5.3. Cluster 2: HAPPY mood](#653-cluster-2-happy-mood)
+        - [6.5.4. Cluster 3: GLOOMY/EMOTIONAL mood](#654-cluster-3-gloomyemotional-mood)
+- [Next Steps](#next-steps)
+- [Next Next Steps](#next-next-steps)
 
 <!-- /TOC -->
-
-# 2. Introduction 
+<h1> Introduction </h1>
 
 My music choices and preferences have always been a direct indicator of my current activity, mood, and emotional state. I listen to upbeat hip-hop songs while working out, soft pop music while I'm feeling moody or down, or something in between while working on my data science projects. This project is an attempt to use Machine Learning to identify those moods and build corresponding playlists for each.
 
 
-# 3. Project Outline
+# Project Outline
 
 This project has 4 different parts:
 
@@ -45,7 +49,7 @@ This project has 4 different parts:
 4) **Playlist Curation**: Develop custom mood-specific Spotify playlists based on my music preferences and mood clusters from the last two parts.
 
 
-# 4. Obtaining Spotify Data
+# Obtaining Spotify Data
 
 The first step is to obtain the data that will drive the rest of this project. This can be done with the following steps:
 
@@ -83,32 +87,31 @@ for song in songid:
 The Spotify API audio features are central to my analysis and mood clustering of my music preferences. Attributes like ***danceability*** and ***energy*** capture differences between faster and slower paced music, while ***speechiness*** quantifies each song's focus on words. A high ***valence*** indicates positive/happy /euphoric music while low ***valence*** quantifies dark/angry/sad music. A complete list of attributes and corresponding definitions can be found [here](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/).
 
 
-# 5. My Music Taste Analysis
+# My Music Taste Analysis
 
 To best display and understand my data, I utilized the ```Plotly``` package for interactive plotting. Let's take a look at some of my music from the past year.
 
-## 5.1. Top Songs
+## Top Songs
 
 *After Hours*, by the Weeknd, tops the chart of my most listened to songs of the past year! Even though the song didn't come out till February, I clearly had it on repeat essentially through April. An interesting note about the song is that it is a 6+ minute song, much longer than the average song I listen to (3ish min.) and the measurement variable of "sum minutes listened" rather than "count of times listened" probably worked in its favor.
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/34.embed"></iframe>
 
 
-## 5.2. Top Artists
+## Top Artists
 
 Post Malone, whom my dad lovingly refers to as, "Post Office Malone", came out as my top artist of the past year. There was a pretty constant stream of various Post songs over my last 12 months. In fact, all three of his albums show up on my top 20 albums list of the past year!
 
-<iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/39.embed"></iframe>
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/71.embed"></iframe>
 
-## 5.3. Top Albums
+## Top Albums 
+<a name="albums"></a>
 
 The Weeknd's *After Hours* album tops the chart of top albums of the past year, which makes a lot of sense thinking back to all the days of cycling through the album on repeat while messing around in my Jupyter Notebooks. Recently, you can see that Polo G's *The GOAT* has been occupying much of the Jupyter Notebook-ing time.
 
-<iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/41.embed"></iframe>
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/73.embed"></iframe>
 
-# 6. Using K-Means clustering to predict my different music-listening moods
+# Using K-Means clustering to predict my different music-listening moods
 
 To create distinct classes to group my musical moods, I use the **K-Means unsupervised learning algorthim**. 
 
@@ -123,7 +126,7 @@ The K-Means clustering algorithim is one of the most popular (and perhaps most i
 #### 6.0.0.1. Repeating steps 3-5 until convergence on a 3-cluster, 2D dataset:
 <img src="/Plots/K-means_convergence.gif" width="400" height="300" />
 
-## 6.1. Choose the number of clusters
+## Choose the number of clusters
 
 This algorithim works very well, on the basis of choosing a number of centroids that represents the data. There are a few methods to choosing a number of clusters, and in this project I use the [elbow method](https://www.scikit-yb.org/en/latest/api/cluster/elbow.html), choosing the number of clusters at the knee of the graph of clusters x inertia (sum of squared distance)
 
@@ -132,7 +135,7 @@ I run the ```sklearn``` K-Means algorithim on my data set and ultimately choose 
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/49.embed"></iframe>
 
-## 6.2. Preprocess the Data
+## Preprocess the Data
 
 Now that I have an algorithim and process down, I begin the preprocessing of my data! To capture my true preferences, as opposed to songs I listened to for a minute and never again, I filter down my data to songs that I have listened to for more than 15 minutes in the past year.
 
@@ -264,7 +267,7 @@ A few impressions of the data:
 - ***Valence*** and ***tempo*** features seems to be the most evenly distributed from 0 to 1.
 
 
-## 6.3. Run the Algorithim
+## Run the Algorithim
 
 The data is ready to be fed through algorithim to develop the mood clusters!
 
@@ -282,7 +285,7 @@ kmeans_mood_labels = kmeans.predict(X)
 df['label'] = kmeans_mood_labels
 ```
 
-## 6.4. Visualize the Results
+## Visualize the Results
 
 My algorithim produced the following cluster value counts:
 
@@ -340,7 +343,7 @@ Output: array([0.32387322, 0.22293707, 0.17594222]), 0.7226
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/61.embed"></iframe>
 
-## 6.5. Results
+## Results
 
 Now that I've analysed my mood clusters, I am going to try and define each mood! To do this, I will do the following:
 1) Summarize the cluster's audio feature statistics
@@ -585,11 +588,11 @@ These songs are slow and emotional. The audio features point to the mood cluster
 </tbody>
 </table>
 
-# 7. Next Steps
+# Next Steps
 
 Now that I have stratified my music into different moods, the next step would be to access the Spotify API and use the "Create Playlist" feature to create custom Spotify playlist based on mood.
 
-# 8. Next Next Steps 
+# Next Next Steps 
 Use that backend ML algorithim in a Web App that when given Spotify username and token access information, the app will run the K-Means Algorithim, create defined moods, and then build custom playlists for each mood for the user directly in the Spotify app.
 
 
