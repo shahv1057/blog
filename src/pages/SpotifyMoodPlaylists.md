@@ -14,20 +14,20 @@ This project has 4 different parts:
 
 1) **Obtain Spotify Data**: Use the Spotify API to obtain all my music listening data from the past year.
 
-2) **Music Taste Analysis**: A deep dive into my song, artist, and album preferences and how these preferences have fluctuated over the year.
+2) **Music Taste Analysis**: Take a deep dive into my song, artist, and album preferences and how these preferences have fluctuated over the year.
 
-3) **Mood Prediction**: I take a look at audio features such as the *acousticness*, *tempo*, and *instrumentalness* of my song preferences and utilize the K-Means Clustering algorithim to stratify my music into different, identifiable moods.
+3) **Mood Prediction**: Analyse the audio features such as the ***acousticness***, ***tempo***, and ***instrumentalness*** of my song preferences and utilize the K-Means Clustering algorithim to stratify the music into different, identifiable moods.
 
-4) **Playlist Curation**: Develop custom mood-specific Spotify playlists based on my music preferences and mood stratifications from the last two parts.
+4) **Playlist Curation**: Develop custom mood-specific Spotify playlists based on my music preferences and mood clusters from the last two parts.
 
 
 # Obtaining Spotify Data
 
-The first step is to obtain the data that will drive the rest of this project. I did this with the following steps:
+The first step is to obtain the data that will drive the rest of this project. This can be done with the following steps:
 
-1) Went to https://www.spotify.com/us/account/privacy/ -- logged into my account and scrolled to the bottom and requested my data.
-2) Received a downloadable zip file with my data from Spotify's team after ~48 hours
-3) Built a Python [script](veeraldoesdata.com) utilizing the [Spotipy](https://spotipy.readthedocs.io/en/2.13.0/) library to access the Spotify API and load my data into a Pandas Dataframe
+1) Visit https://www.spotify.com/us/account/privacy/ -- log into Spotify account and scroll to the bottom and request data.
+2) Received a downloadable zip file with listening data from Spotify's team in around 1-3 days
+3) Use python's [Spotipy](https://spotipy.readthedocs.io/en/2.13.0/) package to access the Spotify API and load data into a Pandas Dataframe
 4) Acquired Spotify's audio features for all my songs:
 
 ```python
@@ -56,8 +56,7 @@ for song in songid:
 
 ```
 
-
-The audio features loaded from the Spotify API will be central to my analysis and mood clustering of my music preferences. Attributes like ***danceability*** and ***energy*** capture differences between faster and slower paced music, while ***speechiness*** quantifies each song's focus on words. A high ***valence*** indicates positive/happy /euphoric music while low *valence* quantifies dark/angry/sad music. A complete list of attributes and corresponding definitions can be found [here](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/).
+The Spotify API audio features are central to my analysis and mood clustering of my music preferences. Attributes like ***danceability*** and ***energy*** capture differences between faster and slower paced music, while ***speechiness*** quantifies each song's focus on words. A high ***valence*** indicates positive/happy /euphoric music while low ***valence*** quantifies dark/angry/sad music. A complete list of attributes and corresponding definitions can be found [here](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/).
 
 
 # My Music Taste Analysis
@@ -66,38 +65,38 @@ To best display and understand my data, I utilized the ```Plotly``` package for 
 
 ## Top Songs
 
-After Hours, by the Weeknd, tops the chart of my most listened to songs of the past year! Even though the song didn't come out till February, I clearly had it on repeat essentially through April. An interesting note about the song is that it is a 6+ minute song, much longer than the average song I listen to (3ish min.) and the measurement variable of "sum minutes listened" rather than "count of times listened" probably worked in its favor.
+*After Hours*, by the Weeknd, tops the chart of my most listened to songs of the past year! Even though the song didn't come out till February, I clearly had it on repeat essentially through April. An interesting note about the song is that it is a 6+ minute song, much longer than the average song I listen to (3ish min.) and the measurement variable of "sum minutes listened" rather than "count of times listened" probably worked in its favor.
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/34.embed"></iframe>
 
 
 ## Top Artists
 
-Post Malone, or as my dad lovingly calls him "Post Office Malone", came out on top in terms of minutes listened in the past year. There was a pretty constant stream of different Post songs over my last 12 months. In fact, all three of his albums show up on my top 20 albums list of the past year!
+Post Malone, whom my dad lovingly refers to as, "Post Office Malone", came out as my top artist of the past year. There was a pretty constant stream of various Post songs over my last 12 months. In fact, all three of his albums show up on my top 20 albums list of the past year!
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/39.embed"></iframe>
+<iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/71.embed"></iframe>
 
 ## Top Albums
 
-The Weeknd's After Hours album tops the chart of top albums of the past year, which makes a lot of sense thinking back to all the days of cycling through the album on repeat while messing around in my Jupyter Notebooks. Recently, you can see that Polo G's "The GOAT" has been occupying much of the Jupyter Notebook-ing time.
+The Weeknd's *After Hours* album tops the chart of top albums of the past year, which makes a lot of sense thinking back to all the days of cycling through the album on repeat while messing around in my Jupyter Notebooks. Recently, you can see that Polo G's *The GOAT* has been occupying much of the Jupyter Notebook-ing time.
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/41.embed"></iframe>
+<iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/73.embed"></iframe>
 
 # Using K-Means clustering to predict my different music-listening moods
 
-## Algorithim
-
-To create distinct classes to group my musical moods, I utilize the **K-Means unsupervised learning algorthim**. 
+To create distinct classes to group my musical moods, I use the **K-Means unsupervised learning algorthim**. 
 
 The K-Means clustering algorithim is one of the most popular (and perhaps most intuitive) machine learning algorithims for classifying unlabeled data. It works in the following steps:
 
 1) Choose number of centroids
 2) Initalize the chosen number of centroids at random, or at specified data points.
-3) Calculate the [Euclidian Distance](https://hlab.stanford.edu/brian/euclidean_distance_in.html) between each point and each centroid, and each point is given the label of its closest centroid
+3) Calculate the [Euclidian Distance](https://hlab.stanford.edu/brian/euclidean_distance_in.html) between each point and each centroid, and label each point by it closest centroid.
 4) For each labeled group, the average point is calculated. This average point becomes the new centroid for the group
 5) Step (3-4) occurs iteratively until the dataset converges (minimal points switching classes during step 3)
 
-### Visualized example of a K-Means algorithim  (Steps 3-5)
+#### Repeating steps 3-5 until convergence on a 3-cluster, 2D dataset:
 <img src="/Plots/K-means_convergence.gif" width="400" height="300" />
 
 ## Choosing number of clusters
@@ -105,6 +104,7 @@ The K-Means clustering algorithim is one of the most popular (and perhaps most i
 This algorithim works very well, on the basis of choosing a number of centroids that represents the data. There are a few methods to choosing a number of clusters, and in this project I use the [elbow method](https://www.scikit-yb.org/en/latest/api/cluster/elbow.html), choosing the number of clusters at the knee of the graph of clusters x inertia (sum of squared distance)
 
 I run the ```sklearn``` K-Means algorithim on my data set and ultimately choose 4 clusters based on the graph
+#### Clusters x Inertia
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/49.embed"></iframe>
 
@@ -239,16 +239,14 @@ A few impressions of the data:
 - ***Energy***, ***danceability***, and ***loudness*** features all have inherently similar, slightly skewed distributions
 - ***Valence*** and ***tempo*** features seems to be the most evenly distributed from 0 to 1.
 
-#### Preprocessing Summary
-
-- Only songs I've listened to for 15+ minutes in the past year
-- 4 mood clusters
-- 8 audio features
 
 ## Running the Algorithim
 
+The data is ready to be fed through algorithim to develop the mood clusters!
+
 ```python
-# Drop non-numeric columns, convert Dataframe to a numerical Numpy array
+# Drop non-numeric columns
+# Convert Dataframe to a numerical Numpy array
 X = df.drop(['track_name','artist_name','album'],axis=1).values
 
 # Fit data to 4 clusters using the sklearn K-Means algorithim
@@ -262,18 +260,14 @@ df['label'] = kmeans_mood_labels
 
 ## Visualize Results
 
-#### Songs in Each Mood Cluster
-
 My algorithim produced the following cluster value counts:
- - **Cluster 0**: 128 Songs
- - **Cluster 1**: 204 Songs
- - **Cluster 2**: 199 Songs
- - **Cluster 3**: 100 Songs
 
 
-#### PCA
+![Mood Group Counts](/Plots/moodsongcounts.png "")
 
-Each song in my dataframe has 8 audio features, which essentially means the data is 8-dimensional. Because data cannot by visualized in 8 dimensions, I used a common dimensionality reduction technique called [Principal Component Analysis (PCA)](https://setosa.io/ev/principal-component-analysis/) to essentially "summarize" my data in 2D. PCA works by reducing the dimensionality in a way that maintains as much of the original data's variance as possible. This technique allows me to visually explore my labeled, multi-dimensional data on a simple x,y graph.
+#### PCA - 2D
+
+Each song in my dataframe has 8 audio features, which essentially means the data is 8-dimensional. Because data cannot by visualized in 8 dimensions, I used a common dimensionality reduction technique called [Principal Component Analysis (PCA)](https://setosa.io/ev/principal-component-analysis/) to condense my data into 2 dimensions in a way that maintains as much of the original data's variance as possible.
 
 Using ```sklearn```'s PCA package:
 
@@ -285,7 +279,7 @@ pc = pd.DataFrame(principal_components)
 pc.columns = ['x', 'y','label']
 ```
 
-(It is important to note that x,y coordinates are a representation of a combination of my 8 features, but **do not exhibit any direct intuition into the feature values**)
+(It is important to note that (x,y) coordinates plotted are a transformed representation of a combination of my 8 features, but **do not exhibit any direct intuition into the feature values**)
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/57.embed"></iframe>
 
@@ -299,7 +293,9 @@ Input: print (pca.explained_variance_ratio_ , sum(pca.explained_variance_ratio_)
 Output: array([0.32387322, 0.22293707]), 0.5468
 ```
 
-Using the above PCA attribute, I see that 32% of my data's original variance was explained by the 1st component while 22% is explained by the 2nd, meaning my PCA reduced the dimensionality the 8 features while maintaining around 54% of the original variance.
+Using the above PCA attribute, I see that 32% of my data's original variance was explained by the 1st component while 22% is explained by the 2nd. Altogether, my PCA reduced the dimensionality the 8 features while maintaining around 54% of the original variance.
+
+#### PCA - 3D
 
 Next, I reran my PCA function, this time with three components, using ```Plotly```'s 3D Scatter Plot functionality to display my data. The cluster stratifications are much clearer now, with the 3rd component capturing an extra 17.5% of the original data's variance. This 3-component transformation of the 8 feature data exhibits a much clear visual cluster distinction while maintaining more than 77% of the original variance.
 
