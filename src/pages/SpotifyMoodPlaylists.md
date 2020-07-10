@@ -3,34 +3,7 @@ title: "Building Mood-Based Spotify Playlists using K-Means Clustering"
 date: "2020-07-07"
 ---
 
-<!-- TOC -->
 
-- [Project Outline](#project-outline)
-- [Obtaining Spotify Data](#obtaining-spotify-data)
-- [My Music Taste Analysis](#my-music-taste-analysis)
-    - [Top Songs](#top-songs)
-    - [Top Artists](#top-artists)
-    - [Top Albums](#top-albums)
-- [Using K-Means clustering to predict my different music-listening moods](#using-k-means-clustering-to-predict-my-different-music-listening-moods)
-            - [6.0.0.1. Repeating steps 3-5 until convergence on a 3-cluster, 2D dataset:](#6001-repeating-steps-3-5-until-convergence-on-a-3-cluster-2d-dataset)
-    - [Choose the number of clusters](#choose-the-number-of-clusters)
-            - [6.1.0.2. Clusters x Inertia](#6102-clusters-x-inertia)
-    - [Preprocess the Data](#preprocess-the-data)
-            - [6.2.0.3. Dataframe Snapshot](#6203-dataframe-snapshot)
-            - [6.2.0.4. Data Distributions](#6204-data-distributions)
-    - [Run the Algorithim](#run-the-algorithim)
-    - [Visualize the Results](#visualize-the-results)
-            - [6.4.0.5. PCA - 2D](#6405-pca---2d)
-            - [6.4.0.6. PCA - 3D](#6406-pca---3d)
-    - [Results](#results)
-        - [6.5.1. Cluster 0: HYPE mood](#651-cluster-0-hype-mood)
-        - [6.5.2. Cluster 1: ANGSTY mood](#652-cluster-1-angsty-mood)
-        - [6.5.3. Cluster 2: HAPPY mood](#653-cluster-2-happy-mood)
-        - [6.5.4. Cluster 3: GLOOMY/EMOTIONAL mood](#654-cluster-3-gloomyemotional-mood)
-- [Next Steps](#next-steps)
-- [Next Next Steps](#next-next-steps)
-
-<!-- /TOC -->
 <h1> Introduction </h1>
 
 My music choices and preferences have always been a direct indicator of my current activity, mood, and emotional state. I listen to upbeat hip-hop songs while working out, soft pop music while I'm feeling moody or down, or something in between while working on my data science projects. This project is an attempt to use Machine Learning to identify those moods and build corresponding playlists for each.
