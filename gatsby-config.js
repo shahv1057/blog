@@ -14,6 +14,7 @@ module.exports = {
   plugins: [
     // `gatsby-transformer-remark`,
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-catch-links`,
     // `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
@@ -43,6 +44,7 @@ module.exports = {
         // Any additional optional fields
         sampleRate: 5,
         siteSpeedSampleRate: 10,
+        
       },
     },
     {
@@ -76,6 +78,16 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              exclude: "Table of Contents",
+              tight: false,
+              fromHeading: 1,
+              toHeading: 6
+            },
+          },
+          `gatsby-remark-autolink-headers`,
           {
             resolve: `gatsby-remark-prismjs`,
             options: {

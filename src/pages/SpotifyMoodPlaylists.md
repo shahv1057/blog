@@ -3,7 +3,6 @@ title: "Building Mood-Based Spotify Playlists using K-Means Clustering"
 date: "2020-07-07"
 ---
 
-
 <h1> Introduction </h1>
 
 My music choices and preferences have always been a direct indicator of my current activity, mood, and emotional state. I listen to upbeat hip-hop songs while working out, soft pop music while I'm feeling moody or down, or something in between while working on my data science projects. This project is an attempt to use Machine Learning to identify those moods and build corresponding playlists for each.
@@ -96,7 +95,7 @@ The K-Means clustering algorithim is one of the most popular (and perhaps most i
 4) For each labeled group, the average point is calculated. This average point becomes the new centroid for the group
 5) Step (3-4) occurs iteratively until the dataset converges (minimal points switching classes during step 3)
 
-#### 6.0.0.1. Repeating steps 3-5 until convergence on a 3-cluster, 2D dataset:
+#### Repeating steps 3-5 until convergence on a 3-cluster, 2D dataset:
 <img src="/Plots/K-means_convergence.gif" width="400" height="300" />
 
 ## Choose the number of clusters
@@ -104,7 +103,7 @@ The K-Means clustering algorithim is one of the most popular (and perhaps most i
 This algorithim works very well, on the basis of choosing a number of centroids that represents the data. There are a few methods to choosing a number of clusters, and in this project I use the [elbow method](https://www.scikit-yb.org/en/latest/api/cluster/elbow.html), choosing the number of clusters at the knee of the graph of clusters x inertia (sum of squared distance)
 
 I run the ```sklearn``` K-Means algorithim on my data set and ultimately choose 4 clusters based on the graph
-#### 6.1.0.2. Clusters x Inertia
+#### Clusters x Inertia
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/49.embed"></iframe>
 
@@ -112,7 +111,7 @@ I run the ```sklearn``` K-Means algorithim on my data set and ultimately choose 
 
 Now that I have an algorithim and process down, I begin the preprocessing of my data! To capture my true preferences, as opposed to songs I listened to for a minute and never again, I filter down my data to songs that I have listened to for more than 15 minutes in the past year.
 
-#### 6.2.0.3. Dataframe Snapshot
+#### Dataframe Snapshot
 <style type="text/css">
 .tg  {border-collapse:collapse;border-color:#9ABAD9;border-spacing:0;}
 .tg td{background-color:#EBF5FF;border-bottom-width:1px;border-color:#9ABAD9;border-style:solid;border-top-width:1px;
@@ -226,7 +225,7 @@ Now that I have an algorithim and process down, I begin the preprocessing of my 
 
 
 
-#### 6.2.0.4. Data Distributions
+#### Data Distributions
 
 The first thing I noticed about each feature is that the distributions are all a bit different. Let's visualize this:
 
@@ -265,7 +264,7 @@ My algorithim produced the following cluster value counts:
 
 ![Mood Group Counts](/Plots/moodsongcounts.png "")
 
-#### 6.4.0.5. PCA - 2D
+#### PCA - 2D
 
 Each song in my dataframe has 8 audio features, which essentially means the data is 8-dimensional. Because data cannot by visualized in 8 dimensions, I used a common dimensionality reduction technique called [Principal Component Analysis (PCA)](https://setosa.io/ev/principal-component-analysis/) to condense my data into 2 dimensions in a way that maintains as much of the original data's variance as possible.
 
@@ -295,7 +294,7 @@ Output: array([0.32387322, 0.22293707]), 0.5468
 
 Using the above PCA attribute, I see that 32% of my data's original variance was explained by the 1st component while 22% is explained by the 2nd. Altogether, my PCA reduced the dimensionality the 8 features while maintaining around 54% of the original variance.
 
-#### 6.4.0.6. PCA - 3D
+#### PCA - 3D
 
 Next, I reran my PCA function, this time with three components, using ```Plotly```'s 3D Scatter Plot functionality to display my data. The cluster stratifications are much clearer now, with the 3rd component capturing an extra 17.5% of the original data's variance. This 3-component transformation of the 8 feature data exhibits a much clear visual cluster distinction while maintaining more than 77% of the original variance.
 
@@ -330,7 +329,7 @@ I now visualize the feature differences using ```seaborn```'s heatmap plot:
 ![Features](/Plots/featureheatmap.png "Logo Title Text 1")
 
 
-### 6.5.1. Cluster 0: HYPE mood
+### Cluster 0: HYPE mood
 
 ![Hype](/Plots/hype.gif "Hype")
 
@@ -392,7 +391,7 @@ A quick random sample immediately confirms that:
 </tbody>
 </table>
 
-### 6.5.2. Cluster 1: ANGSTY mood
+### Cluster 1: ANGSTY mood
 
 ![angsty](/Plots/angsty.gif "angsty")
 
@@ -456,7 +455,7 @@ Here's a random sample of songs in the cluster:
 </table>
 
 
-### 6.5.3. Cluster 2: HAPPY mood
+### Cluster 2: HAPPY mood
 
 ![Happy](/Plots/happy.gif "Happy")
 
@@ -509,7 +508,7 @@ These audio features point to the mood cluster contain a lot of **Upbeat Happy P
 </tbody>
 </table>
 
-### 6.5.4. Cluster 3: GLOOMY/EMOTIONAL mood
+### Cluster 3: GLOOMY/EMOTIONAL mood
 
 ![Sad](/Plots/sad.gif "Sad")
 
