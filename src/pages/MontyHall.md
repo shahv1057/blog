@@ -3,7 +3,9 @@ title: "The Monty Hall Problem"
 date: "2020-04-17"
 description: "What is this problem and why does it matter?"
 ---
-![](/Plots/MontyHallgoat.jpg "Goat")  
+<img src="/Plots/MontyHallgoat.jpg" width="400" height="300" />
+
+
 <h1> Introduction </h1>
 
 This post isn't exactly "Data Science". However, it does deal with math and probability, and is an ideal example of statistics and probability rebuking seemingly simple intuition. Here's my take on the Monty Hall Problem:
