@@ -10,7 +10,7 @@ My music choices and preferences have always been a direct indicator of my curre
 
 # Project Outline
 
-This project has 4 different parts:
+This project has 4 distinct parts:
 
 1) **Obtain Spotify Data**: Use the Spotify API to obtain all my music listening data from the past year.
 
@@ -19,6 +19,8 @@ This project has 4 different parts:
 3) **Mood Prediction**: Analyse audio features such as the ***acousticness***, ***tempo***, and ***instrumentalness*** of my song preferences and utilize the K-Means Clustering algorithim to stratify the music into different, defined moods.
 
 4) **Playlist Curation**: Develop custom mood-specific Spotify playlists based on my music preferences and mood clusters from the last two parts.
+
+
 
 
 # Obtaining Spotify Data
@@ -465,7 +467,7 @@ Cluster 2 was similar to Cluster 0 in loudness and energy, though specifically d
 - High Loudness and Energy
 - Low Instrumentalness
 
-These songs are happy and exciting and make you want to dance. However, unline Cluster 0, the songs do not have a high speechiness. 
+These songs are happy and exciting and make you want to dance. However, unlike Cluster 0, the songs do not have a high speechiness. 
 
 These audio features point to the mood cluster contain a lot of **Upbeat Happy Pop** - catchy songs you can sing and dance to. Here's a random sample of songs in the cluster:
 
@@ -560,12 +562,54 @@ These songs are slow and emotional. The audio features point to the mood cluster
 </tbody>
 </table>
 
-# Next Steps
+# Creating Mood-Based Playlists in Spotify
 
-Now that I have stratified my music into different moods, the next step would be to access the Spotify API and use the "Create Playlist" feature to create custom Spotify playlist based on mood.
+Using ```Spotipy```'s playlist access with the scope "playlist-modify-public", it is possible to create Spotify playlists right from a Jupyter Notebook!
 
-# Next Next Steps 
-Use that backend ML algorithim in a Web App that when given Spotify username and token access information, the app will run the K-Means Algorithim, create defined moods, and then build custom playlists for each mood for the user directly in the Spotify app.
+```python
+from spotipy.oauth2 import SpotifyOAuth
+
+scope = 'playlist-modify-public'
+token = util.prompt_for_user_token(username=username, 
+                                   scope=scope, 
+                                   client_id=client_id,   
+                                   client_secret=client_secret,     
+                                   redirect_uri=redirect_uri)
+
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id,client_secret,redirect_uri,scope=scope,username=username))
+```
+```python
+def create_mood_playlists(moods, df, num_clusters, playlist_length):
+    '''
+    Input: List of defined moods, features df, number of clusters, len of desired playlist
+    Output: Spotify Playlist
+    '''
+    for moodnum in range(num_clusters):
+        mood_data = df[df.label==moodnum]
+        sp.user_playlist_create(username, moods[moodnum])      
+        playlist_id = sp.user_playlists(username)['items'][0]['id']
+        playlist_song_IDs = list(mood_data['track_id'].sample(playlist_length))
+        sp.user_playlist_add_tracks(username, playlist_id, list(playlist_song_IDs))
+        
+moods = ['Hype','Angsty','Happy','Sad']
+num_clusters = 4
+playlist_length = 20
+
+create_mood_playlists(moods, song_prefs, num_clusters, playlist_length)
+```
+
+**Check 'em out!**
+
+<img src="/Plots/HypePlaylist.png" width="400" height="300" />
+<img src="/Plots/AngstyPlaylist.png" width="400" height="300" />
+<img src="/Plots/HappyPlaylist.png" width="400" height="300" />
+<img src="/Plots/SadPlaylist.png" width="400" height="300" />
+
+
+# Next Steps 
+Build a Web App that, when given Spotify username and token access info, the app will run the K-Means Algorithim, create defined moods, and then build custom mood-specific playlists for the user directly in the Spotify app.
+
+## Thanks For Reading!
 
 
 
