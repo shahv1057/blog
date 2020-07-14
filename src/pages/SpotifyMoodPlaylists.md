@@ -7,6 +7,8 @@ date: "2020-07-07"
 
 My music choices and preferences have always been a direct indicator of my current activity, mood, and emotional state. I listen to upbeat hip-hop songs while working out, soft pop music while I'm feeling moody or down, or something in between while working on my data science projects. This project is an attempt to use Machine Learning to identify those moods and build corresponding playlists for each.
 
+If you're interested in my code, you can find it [here]!(https://github.com/shahv1057/SpotifyMoodPlaylists)
+
 
 # Project Outline
 
