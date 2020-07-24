@@ -1,15 +1,15 @@
 ---
 title: "Using Animated Plots"
-description: "How to create an animated bar plot"
+description: "How to create an animated bar plot using Pandas and Matplotlib..."
 date: "2020-04-10"
+coverimage: "/Plots/COVIDPlots/CTY-bar-ani.gif"
 ---
 
 <h1> Introduction </h1>
 
-I've been working alongside a team of people to collect and analyze data relating to the impact and response to COVID-19 over the past few weeks. When trying to convey the changes in collected responses over time, I've found it especially useful to use animated plots like these: 
+I've been working alongside a team of people to collect and analyze data relating to the impact and response to COVID-19 over the past few weeks. When trying to convey the changes in collected responses over time, I've found it especially useful to use animated plots like this time-series animated bar plot showing the county-specific spread of the the virus over the last few months: 
 
-![debatepic](/Plots/COVIDPlots/CTY-bar-ani.gif "Logo Title Text 1")
-![debatepic](/Plots/COVIDPlots/MapAnimations/counties_outlines.gif "Logo Title Text 1")
+![debatepic](/Plots/COVIDPlots/CTY-bar-ani.gif "")
 
 This post is about how to create such plots that convey trends in data over time in an accessible and informative manner.
 
@@ -69,12 +69,12 @@ def update(df, date):
 
 To create your animation, I suggest you use the FuncAnimation function from Matlplotlib's animation package. You will need to set the following parameters:
 
-fig: figure object of your graph
-func: your update function
-frames: a list for your update function to iterate through. In this case, a list your dates sorted chronologically
-interval: Delay between frames in milliseconds.
-repeat: Boolean that controls whether or not you animation repeats from the beginning after iterating through all dates
-repeat_delay: If the animation in repeated, adds a delay in milliseconds before repeating the animation.
+- fig: figure object of your graph
+- func: your update function
+- frames: a list for your update function to iterate through. In this case, a list your dates sorted chronologically
+- interval: Delay between frames in milliseconds.
+- repeat: Boolean that controls whether or not you animation repeats from the beginning after iterating through all dates
+- repeat_delay: If the animation in repeated, adds a delay in milliseconds before repeating the animation.
 
 
 You can save your animation as a .mov, .mp4, or .gif file in your local path. Your animation function should look something like:

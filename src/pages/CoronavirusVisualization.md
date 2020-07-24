@@ -1,6 +1,7 @@
 ---
-title: "COVID-19"
+title: "Coronavirus Over Time"
 date: "2020-04-02"
+coverimage: "/Plots/COVIDstockimage.jpg"
 ---
 
 <h1> Introduction </h1>

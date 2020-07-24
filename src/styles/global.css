@@ -4,7 +4,11 @@ html {
 }
 a {
   text-decoration: none;
+  color: steelblue;
   background-image: none;
+}
+a:hover {
+  text-shadow: 1px 0 0 black;
 }
 body {
   line-height: 140%;

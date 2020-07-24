@@ -3,11 +3,13 @@ import { Link, graphql } from "gatsby"
 import { css } from "@emotion/core"
 import { rhythm } from "../utils/typography"
 import Layout from "../components/Layout"
+import Header from "../components/Header"
 
 export default ({ data }) => {
   return (
     <Layout title="Home">
-      <div>
+      <div style={{fontFamily: "New Century Schoolbook", marginLeft: "25px"}}>
+        <h1>My Blog</h1>
         <h5>
           {
             data.allMarkdownRemark.edges.filter(
@@ -23,7 +25,7 @@ export default ({ data }) => {
         {data.allMarkdownRemark.edges
           .filter(({ node }) => !node.frontmatter.draft)
           .map(({ node }) => (
-            <div key={node.id}>
+            <div key={node.id} style={{float: "left", width: "90%", lineHeight:"200%"}}>
               <Link
                 to={node.fields.slug}
                 css={css`
@@ -31,26 +33,46 @@ export default ({ data }) => {
                   color: inherit;
                 `}
               >
-                <h3
-                  css={css`
-                    margin-bottom: ${rhythm(1 / 3)};
-                    color: Black;
-                    text-decoration: none;
-                  `}
-                >
+                <div style={{float: "left", marginRight: "15px",}}>
+                  {node.frontmatter.coverimage
+                    ? <img src={node.frontmatter.coverimage} height="200" width="250" margin-right="10px"/>
+                    : <img src="/Plots/IMG_2371.jpg" height="150" width="200" margin-right="10px"/>}       
+                </div>
+                <div style={{marginTop: "10px"}}          
+                css={css`
+                      color: black;
+                      font-size: 35px;
+                      text-decoration: none;
+                      font-weight: bold;
+                      margin-left: 10px;
+                      
+                    `}
+                > 
                   {node.frontmatter.title}{" "}
+                  <br/>
                   <span
                     css={css`
                       color: hsla(0,0%,50%,0.7);
-                      font-size: 23px;
+                      font-size: 20px;
                       text-decoration: none;
                       
                     `}
                   >
-                    — {node.frontmatter.date}
+                    {node.frontmatter.date}
                   </span>
-                </h3>
-                <p>{node.excerpt}</p>
+                  <br/>
+                  <p
+                 css={css`
+                  font-size: 19px;
+                  text-decoration: none;
+                  font-weight: 100;
+                  line-height: 150%;
+                    `}>
+                  {node.frontmatter.description
+                  ? node.frontmatter.description
+                  : node.excerpt}
+                  </p>
+                </div>
               </Link>
             </div>
           ))}
@@ -70,6 +92,8 @@ export const query = graphql`
             title
             date(formatString: "MMMM DD, YYYY")
             draft
+            description
+            coverimage
           }
           fields {
             slug

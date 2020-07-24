@@ -1,6 +1,8 @@
 ---
 title: "COVID-19 State Dashboard"
+description: Interactive, state-by-state data on coronavirus cases, deaths, and testing...
 date: "2020-06-23"
+coverimage: "./Plots/plotexample.png"
 ---
 
 <iframe width="900" height="500" frameborder="0" scrolling="yes" src="//plotly.com/~shahv1057/4.embed"></iframe>

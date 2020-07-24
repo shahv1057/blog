@@ -5,11 +5,13 @@ import SEO from "../components/seo"
 import { css } from "@emotion/core"
 
 export default ({ data }) => {
-  console.log(data)
+  // console.log(data)
   const post = data.markdownRemark
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} description={post.excerpt} />
+      <SEO title={post.frontmatter.title} description={post.frontmatter.description
+            ? post.frontmatter.description
+            : post.excerpt} />
       <div>
         <h1
           css={css`
@@ -30,6 +32,8 @@ export default ({ data }) => {
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
+
+
     </Layout>
   )
 }
@@ -42,6 +46,8 @@ export const query = graphql`
         title
         date(formatString: "DD MMMM, YYYY")
         draft
+        description
+        coverimage
       }
       excerpt
     }

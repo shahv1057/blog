@@ -1,6 +1,8 @@
 ---
 title: "Building Mood-Based Spotify Playlists using K-Means Clustering"
+description: A deep dive into my Spotify music preferences and how to build Spotify playlists corresponding to different moods...
 date: "2020-07-07"
+coverimage: "./Plots/musicmoods.jpg"
 ---
 
 <h1> Introduction </h1>
@@ -276,10 +278,10 @@ Using ```sklearn```'s PCA package:
 
 ```python
 from sklearn.decomposition import PCA
-pca = PCA(n_components=2)
-principal_components = pca.fit_transform(X)
-pc = pd.DataFrame(principal_components)
-pc.columns = ['x', 'y','label']
+pca_2d = PCA(n_components=2)
+principal_components = pca_2d.fit_transform(X)
+pc_2d = pd.DataFrame(principal_components)
+pc_2d.columns = ['x', 'y','label']
 ```
 
 (It is important to note that (x,y) coordinates plotted are a transformed representation of a combination of my 8 features, but **do not exhibit any direct intuition into the feature values**)
@@ -289,7 +291,7 @@ pc.columns = ['x', 'y','label']
 By using PCA, I can see my data much more clearly. As shown in the plot, labels "2" and "3" are pretty well defined with not too much overlap, while labels "0" and "1" have a large amount of overlap.
 
 ```python 
-Input: print (pca.explained_variance_ratio_ , sum(pca.explained_variance_ratio_))
+Input: print (pca_2d.explained_variance_ratio_ , sum(pca_2d.explained_variance_ratio_))
 ```
 
 ```python 
@@ -303,14 +305,14 @@ Using the above PCA attribute, I see that 32% of my data's original variance was
 Next, I reran my PCA function, this time with three components, using ```Plotly```'s 3D Scatter Plot functionality to display my data. The cluster stratifications are much clearer now, with the 3rd component capturing an extra 17.5% of the original data's variance. This 3-component transformation of the 8 feature data exhibits a much clear visual cluster distinction while maintaining more than 77% of the original variance.
 
 ```python
-pca = PCA(n_components=3)
-principal_components = pca.fit_transform(X)
-pc = pd.DataFrame(principal_components)
-pc.columns = ['x', 'y', 'z', 'label']
+pca_3d = PCA(n_components=3)
+principal_components = pca_3d.fit_transform(X)
+pc_3d = pd.DataFrame(principal_components)
+pc_3d.columns = ['x', 'y', 'z', 'label']
 ```
 
 ```python 
-Input: print (pca.explained_variance_ratio_ , sum(pca.explained_variance_ratio_))
+Input: print (pca_3d.explained_variance_ratio_ , sum(pca_3d.explained_variance_ratio_))
 ```
 
 ```python 

@@ -13,6 +13,9 @@ export default () => (
       href="https://instagram.com/veeral_shah"
       target="blank"
       rel="noopener noreferrer"
+      hover = {{
+        textShadow: "2px 1 0 steelblue"
+      }}
       style={{
         borderBottom: "none",
         backgroundImage: "none",
@@ -20,7 +23,10 @@ export default () => (
     >
       <FaInstagram
         style={{
-          marginRight: "1em",
+          height: "30px",
+          width: "30px",
+          marginLeft: "1em",
+          marginRight: "1.5em",
         }}
       />
     </a>
@@ -34,7 +40,9 @@ export default () => (
     >
       <FaGithub
         style={{
-          marginRight: "1em",
+          height: "30px",
+          width: "30px",
+          marginRight: "1.5em",
         }}
       />
     </a>
@@ -49,7 +57,9 @@ export default () => (
     >
       <FaLinkedinIn
         style={{
-          marginRight: "1em",
+          height: "30px",
+          width: "30px",
+          marginRight: "1.5em",
         }}
       />
     </a>

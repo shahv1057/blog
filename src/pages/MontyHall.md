@@ -1,7 +1,8 @@
 ---
 title: "The Monty Hall Problem"
 date: "2020-04-17"
-description: "What is this problem and why does it matter?"
+# description: Use probability and statistics! Beat the odds! Win a brand, new car!
+coverimage: "/Plots/MontyHallgoat.jpg"
 ---
 <img src="/Plots/MontyHallgoat.jpg" width="400" height="300" />
 
