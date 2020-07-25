@@ -8,7 +8,7 @@ a {
   background-image: none;
 }
 a:hover {
-  text-shadow: 1px 0 0 black;
+  color: darkblue;
 }
 body {
   line-height: 140%;
