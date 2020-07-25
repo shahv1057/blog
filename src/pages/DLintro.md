@@ -1,6 +1,6 @@
 ---
 title: "Deep Learning (A Top-Down Approach)"
-coverimage: "./Plots/neuralnetcover.jpg"
+coverimage: "/Plots/neuralnetcover.jpg"
 date: "2020-06-04"
 ---
 <h2>Introduction</h2>
