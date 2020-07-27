@@ -38,15 +38,17 @@ export default ({ data }) => {
                     ? <img src={node.frontmatter.coverimage} height="200" width="250" margin-right="10px"/>
                     : <img src="/Plots/IMG_2371.jpg" height="150" width="200" margin-right="10px"/>}       
                 </div>
-                <div style={{marginTop: "10px"}}          
-                css={css`
-                      color: black;
-                      font-size: 35px;
-                      text-decoration: none;
-                      font-weight: bold;
-                      margin-left: 10px;
+                <div 
+                class="myClass"
+                style={{marginTop: "10px"}}          
+                // css={css`
+                //       color: black;
+                //       font-size: 35px;
+                //       text-decoration: none;
+                //       font-weight: bold;
+                //       margin-left: 10px;
                       
-                    `}
+                //     `}
                 > 
                   {node.frontmatter.title}{" "}
                   <br/>
@@ -62,7 +64,7 @@ export default ({ data }) => {
                   </span>
                   <br/>
                   <p
-                 css={css`
+                  css={css`
                   font-size: 19px;
                   text-decoration: none;
                   font-weight: 100;

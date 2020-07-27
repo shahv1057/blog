@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import { css } from "@emotion/core"
 
+
 export default ({ data }) => {
   // console.log(data)
   const post = data.markdownRemark
@@ -12,7 +13,7 @@ export default ({ data }) => {
       <SEO title={post.frontmatter.title} description={post.frontmatter.description
             ? post.frontmatter.description
             : post.excerpt} />
-      <div>
+      <div style={{marginLeft:"90px",marginRight:"90px", marginBottom:"90px"}}>
         <h1
           css={css`
             margin-bottom: 0.2rem;
@@ -32,6 +33,7 @@ export default ({ data }) => {
 
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
+
 
 
     </Layout>
