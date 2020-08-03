@@ -2,9 +2,9 @@
 title: "The Monty Hall Problem"
 date: "2020-04-17"
 # description: Use probability and statistics! Beat the odds! Win a brand, new car!
-coverimage: "/Plots/MontyHallgoat.jpg"
+coverimage: "/Plots/MontyHallgoat.png"
 ---
-<img src="/Plots/MontyHallgoat.jpg" width="400" height="300" />
+<img src="/Plots/MontyHallgoat.png" width="400" height="300" />
 
 
 <h1> Introduction </h1>
@@ -20,12 +20,10 @@ The Monty Hall problem is based on a game show situation. Let's start by explain
 - There are **THREE** closed doors, two of the doors have goats behind them and one has a new car
 - The contestant chooses a door hoping to pick the door with the new car
 - The game show Host then checks the other two doors and opens one of them to reveal a goat
-
-![Doors](/Plots/MontyHalldoors.jpg "Doors")  
+<br><br/>
+![Doors](/Plots/MontyHalldoors.png "Doors")  
 
 The Host then asks the contestant if he or she would like to stick with the door originally chosen, or switch to the other unopened door.
-<br><br/>
-
 
 ## Stay or Switch?
 

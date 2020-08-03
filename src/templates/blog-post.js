@@ -13,11 +13,10 @@ export default ({ data }) => {
       <SEO title={post.frontmatter.title} description={post.frontmatter.description
             ? post.frontmatter.description
             : post.excerpt} />
-      <div style={{marginLeft:"90px",marginRight:"90px", marginBottom:"90px"}}>
+      <div style={{marginLeft:"130px",marginRight:"130px", marginBottom:"90px"}}>
         <h1
-          css={css`
-            margin-bottom: 0.2rem;
-          `}
+        className="blog-post-title"
+      
         >
           {post.frontmatter.title}
         </h1>

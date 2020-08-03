@@ -5,14 +5,13 @@ date: "2020-07-07"
 coverimage: "/Plots/musicmoods.jpg"
 ---
 
-<h1> Introduction </h1>
+## Introduction
 
 My music choices and preferences have always been a direct indicator of my current activity, mood, and emotional state. I listen to upbeat hip-hop songs while working out, soft pop music while I'm feeling moody or down, or something in between while working on my data science projects. This project is an attempt to use Machine Learning to identify those moods and build corresponding playlists for each.
 
 If you're interested in my code, you can find it [here](https://github.com/shahv1057/SpotifyMoodPlaylists)!
 
-
-# Project Outline
+## Project Outline
 
 This project has 4 distinct parts:
 
@@ -24,10 +23,7 @@ This project has 4 distinct parts:
 
 4) **Playlist Curation**: Develop custom mood-specific Spotify playlists based on my music preferences and mood clusters from the last two parts.
 
-
-
-
-# Obtaining Spotify Data
+## Obtaining Spotify Data
 
 The first step is to obtain the data that will drive the rest of this project. This can be done with the following steps:
 
@@ -65,31 +61,31 @@ for song in songid:
 The Spotify API audio features are central to my analysis and mood clustering of my music preferences. Attributes like ***danceability*** and ***energy*** capture differences between faster and slower paced music, while ***speechiness*** quantifies each song's focus on words. A high ***valence*** indicates positive/happy /euphoric music while low ***valence*** quantifies dark/angry/sad music. A complete list of attributes and corresponding definitions can be found [here](https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/).
 
 
-# My Music Taste Analysis
+## My Music Taste Analysis
 
 To best display and understand my data, I utilized the ```Plotly``` package for interactive plotting. Let's take a look at some of my music from the past year.
 
-## Top Songs
+### Top Songs
 
 *After Hours*, by the Weeknd, tops the chart of my most listened to songs of the past year! Even though the song didn't come out till February, I clearly had it on repeat essentially through April. An interesting note about the song is that it is a 6+ minute song, much longer than the average song I listen to (3ish min.) and the measurement variable of "sum minutes listened" rather than "count of times listened" probably worked in its favor.
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/34.embed"></iframe>
 
 
-## Top Artists
+### Top Artists
 
 Post Malone, whom my dad lovingly refers to as, "Post Office Malone", came out as my top artist of the past year. There was a pretty constant stream of various Post songs over my last 12 months. In fact, all three of his albums show up on my top 20 albums list of the past year!
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/71.embed"></iframe>
 
-## Top Albums 
+### Top Albums 
 <a name="albums"></a>
 
 The Weeknd's *After Hours* album tops the chart of top albums of the past year, which makes a lot of sense thinking back to all the days of cycling through the album on repeat while messing around in my Jupyter Notebooks. Recently, you can see that Polo G's *The GOAT* has been occupying much of the Jupyter Notebook-ing time.
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/73.embed"></iframe>
 
-# Using K-Means clustering to predict my different music-listening moods
+## Using K-Means clustering to predict my different music-listening moods
 
 To create distinct classes to group my musical moods, I use the **K-Means unsupervised learning algorthim**. 
 
@@ -101,23 +97,23 @@ The K-Means clustering algorithim is one of the most popular (and perhaps most i
 4) For each labeled group, the average point is calculated. This average point becomes the new centroid for the group
 5) Step (3-4) occurs iteratively until the dataset converges (minimal points switching classes during step 3)
 
-#### Repeating steps 3-5 until convergence on a 3-cluster, 2D dataset:
+##### Repeating steps 3-5 until convergence on a 3-cluster, 2D dataset:
 <img src="/Plots/K-means_convergence.gif" width="400" height="300" />
 
-## Choose the number of clusters
+### Choose the number of clusters
 
 This algorithim works very well, on the basis of choosing a number of centroids that represents the data. There are a few methods to choosing a number of clusters, and in this project I use the [elbow method](https://www.scikit-yb.org/en/latest/api/cluster/elbow.html), choosing the number of clusters at the knee of the graph of clusters x inertia (sum of squared distance)
 
 I run the ```sklearn``` K-Means algorithim on my data set and ultimately choose 4 clusters based on the graph
-#### Clusters x Inertia
+##### Clusters x Inertia
 
 <iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/49.embed"></iframe>
 
-## Preprocess the Data
+### Preprocess the Data
 
 Now that I have an algorithim and process down, I begin the preprocessing of my data! To capture my true preferences, as opposed to songs I listened to for a minute and never again, I filter down my data to songs that I have listened to for more than 15 minutes in the past year.
 
-#### Dataframe Snapshot
+##### Dataframe Snapshot
 <style type="text/css">
 .tg  {border-collapse:collapse;border-color:#9ABAD9;border-spacing:0;}
 .tg td{background-color:#EBF5FF;border-bottom-width:1px;border-color:#9ABAD9;border-style:solid;border-top-width:1px;
@@ -231,7 +227,7 @@ Now that I have an algorithim and process down, I begin the preprocessing of my 
 
 
 
-#### Data Distributions
+##### Data Distributions
 
 The first thing I noticed about each feature is that the distributions are all a bit different. Let's visualize this:
 
@@ -245,7 +241,7 @@ A few impressions of the data:
 - ***Valence*** and ***tempo*** features seems to be the most evenly distributed from 0 to 1.
 
 
-## Run the Algorithim
+### Run the Algorithim
 
 The data is ready to be fed through algorithim to develop the mood clusters!
 
@@ -263,14 +259,14 @@ kmeans_mood_labels = kmeans.predict(X)
 df['label'] = kmeans_mood_labels
 ```
 
-## Visualize the Results
+### Visualize the Results
 
 My algorithim produced the following cluster value counts:
 
 
 ![Mood Group Counts](/Plots/moodsongcounts.png "")
 
-#### PCA - 2D
+##### PCA - 2D
 
 Each song in my dataframe has 8 audio features, which essentially means the data is 8-dimensional. Because data cannot by visualized in 8 dimensions, I used a common dimensionality reduction technique called [Principal Component Analysis (PCA)](https://setosa.io/ev/principal-component-analysis/) to condense my data into 2 dimensions in a way that maintains as much of the original data's variance as possible.
 
@@ -300,7 +296,7 @@ Output: array([0.32387322, 0.22293707]), 0.5468
 
 Using the above PCA attribute, I see that 32% of my data's original variance was explained by the 1st component while 22% is explained by the 2nd. Altogether, my PCA reduced the dimensionality the 8 features while maintaining around 54% of the original variance.
 
-#### PCA - 3D
+##### PCA - 3D
 
 Next, I reran my PCA function, this time with three components, using ```Plotly```'s 3D Scatter Plot functionality to display my data. The cluster stratifications are much clearer now, with the 3rd component capturing an extra 17.5% of the original data's variance. This 3-component transformation of the 8 feature data exhibits a much clear visual cluster distinction while maintaining more than 77% of the original variance.
 
@@ -335,7 +331,7 @@ I now visualize the feature differences using ```seaborn```'s heatmap plot:
 ![Features](/Plots/featureheatmap.png "Logo Title Text 1")
 
 
-### Cluster 0: HYPE mood
+#### Cluster 0: HYPE mood
 
 ![Hype](/Plots/hype.gif "Hype")
 
@@ -397,7 +393,7 @@ A quick random sample immediately confirms that:
 </tbody>
 </table>
 
-### Cluster 1: ANGSTY mood
+#### Cluster 1: ANGSTY mood
 
 ![angsty](/Plots/angsty.gif "angsty")
 
@@ -461,7 +457,7 @@ Here's a random sample of songs in the cluster:
 </table>
 
 
-### Cluster 2: HAPPY mood
+#### Cluster 2: HAPPY mood
 
 ![Happy](/Plots/happy.gif "Happy")
 
@@ -514,7 +510,7 @@ These audio features point to the mood cluster contain a lot of **Upbeat Happy P
 </tbody>
 </table>
 
-### Cluster 3: GLOOMY/EMOTIONAL mood
+#### Cluster 3: GLOOMY/EMOTIONAL mood
 
 ![Sad](/Plots/sad.gif "Sad")
 
@@ -566,7 +562,7 @@ These songs are slow and emotional. The audio features point to the mood cluster
 </tbody>
 </table>
 
-# Creating Mood-Based Playlists in Spotify
+## Creating Mood-Based Playlists in Spotify
 
 Using ```Spotipy```'s playlist access with the scope "playlist-modify-public", it is possible to create Spotify playlists right from a Jupyter Notebook!
 
@@ -610,10 +606,10 @@ create_mood_playlists(moods, song_prefs, num_clusters, playlist_length)
 <img src="/Plots/SadPlaylist.png" width="400" height="300" />
 
 
-# Next Steps 
+## Next Steps 
 Build a Web App that, when given Spotify username and token access info, the app will run the K-Means Algorithim, create defined moods, and then build custom mood-specific playlists for the user directly in the Spotify app.
 
-## Thanks For Reading!
+### Thanks For Reading!
 
 
 

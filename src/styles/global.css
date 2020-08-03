@@ -1,17 +1,19 @@
 html {
-  background-color: white;
+  background-color: #F1F1F1;
   line-height: 2;
+  font-family: 'Arsenal'
 }
 a {
   text-decoration: none;
-  color: steelblue;
+  color: #289494;
   background-image: none;
 }
 a:hover {
-  color: darkblue;
+  color: #056959;
 }
 body {
   line-height: 140%;
+  font-family: 'Arsenal';
 }
 
 div.myClass {
@@ -20,11 +22,11 @@ div.myClass {
   text-decoration: none;
   font-weight: bold;
   margin-left: 10px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Arsenal'
   
 }
 div.myClass:hover {
-  color: steelblue
+  color: #289494
 }
 
 div.myspan {
@@ -35,6 +37,21 @@ div.myspan {
 }
 
 div.myspan:hover {
-  color: steelblue
+  color: #289494
 }
 
+h1, h2, h3, h4 {
+  font-family: 'Arsenal';
+  color: "inherit"
+}
+
+
+
+h1.blog-post-title {
+  color: "#2d2d2d";
+  margin-bottom: 0.2rem;
+}
+
+h2 {
+  color: "#289494"
+}

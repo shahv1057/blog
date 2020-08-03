@@ -1,5 +1,5 @@
 ---
-title: "Deep Learning (A Top-Down Approach)"
+title: "Deep Learning (A Top-Down Introduction)"
 coverimage: "/Plots/neuralnetcover.jpg"
 date: "2020-06-04"
 ---
@@ -27,4 +27,4 @@ As a human using your own (very much not artificial) neural networks, think abou
 
 Identifying the difference between a cat and a human may seem trivial, but the implications of expanding these models is undeniably incredible. Let's take the example of a car. If a car can identify roads, speed limits, traffic lights, stop signs, pedestrians, and more with a level of accuracy comparable (or even better) than a safe-driving human, all of a sudden the once mystical and unfathomable concept of an autonomous car seems much more attainable!
 
-I am by no means an expert at building these models, but I have learned enough in the last few months to build a [National Parks Classifier](https://parks.veeraldoesdata.com) that works very similar to the cat/human classifier I described in this post, using deep learning to identify differences between Sequoia, Yosemite, and Yellowstone National Parks. Check it out the link, upload a personal photo or one from the internet, and let me know how it works!
+I am by no means an expert at building these models, but I have learned enough in the last few months to build a **[National Parks Classifier](https://parks.veeraldoesdata.com) that works very similar to the cat/human classifier I described in this post, using deep learning to identify differences between Sequoia, Yosemite, and Yellowstone National Parks. Check it out the link, upload a personal photo or one from the internet, and let me know how it works!
