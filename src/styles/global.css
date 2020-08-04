@@ -73,6 +73,12 @@ h1.title {
   font-weight: normal;
 }
 
+.icons {
+  width: 30px;
+  height: 30px;
+  margin-right: 1.5rem;
+}
+
 @media screen and (max-width: 600px) {
   ul.menu-items {
     float: initial;
@@ -81,6 +87,11 @@ h1.title {
 
   div.social-icons {
     justify-content: center;
+  }
+  .icons {
+    width: 20px;
+    height: 20px;
+    margin-right: 1.5rem;
   }
 
   h1.title {

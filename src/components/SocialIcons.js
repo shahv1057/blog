@@ -22,14 +22,7 @@ export default () => (
         backgroundImage: "none",
       }}
     >
-      <FaInstagram
-        style={{
-          height: "30px",
-          width: "30px",
-          marginLeft: "1em",
-          marginRight: "1.5em",
-        }}
-      />
+      <FaInstagram className="icons" />
     </a>
     <a
       href="https://github.com/shahv1057"
@@ -39,13 +32,7 @@ export default () => (
         borderBottom: "none",
       }}
     >
-      <FaGithub
-        style={{
-          height: "30px",
-          width: "30px",
-          marginRight: "1.5em",
-        }}
-      />
+      <FaGithub className="icons" />
     </a>
 
     <a
@@ -56,13 +43,7 @@ export default () => (
         borderBottom: "none",
       }}
     >
-      <FaLinkedinIn
-        style={{
-          height: "30px",
-          width: "30px",
-          marginRight: "1.5em",
-        }}
-      />
+      <FaLinkedinIn className="icons" />
     </a>
   </div>
 )
