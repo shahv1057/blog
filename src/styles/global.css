@@ -1,57 +1,58 @@
 html {
-  background-color: #F1F1F1;
+  background-color: #f1f1f1;
   line-height: 2;
-  font-family: 'Arsenal'
+  font-family: "Spectral";
 }
 a {
   text-decoration: none;
   color: #289494;
   background-image: none;
+  text-shadow: none;
 }
 a:hover {
   color: #056959;
 }
 body {
   line-height: 140%;
-  font-family: 'Arsenal';
+  font-family: "Spectral";
 }
 
 div.myClass {
-  color: black;
-  font-size: 35px;
+  color: #2d2d2d;
+  font-size: 28px;
   text-decoration: none;
-  font-weight: bold;
-  margin-left: 10px;
-  font-family: 'Arsenal'
-  
+  font-weight: normal;
+  margin-bottom: 10px;
+  line-height: 40px;
+  font-family: "Arsenal";
+  margin-bottom: 0px;
 }
 div.myClass:hover {
-  color: #289494
+  color: #289494;
 }
 
 div.myspan {
-  color: hsla(0,0%,50%,0.7);
-  font-size: 20px;
+  color: hsla(0, 0%, 50%, 0.7);
+  font-size: 18px;
   text-decoration: none;
-  
 }
 
 div.myspan:hover {
-  color: #289494
+  color: #289494;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Arsenal';
-  color: "inherit"
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Arsenal";
+  color: #2d2d2d;
 }
-
-
 
 h1.blog-post-title {
-  color: "#2d2d2d";
+  color: #2d2d2d;
   margin-bottom: 0.2rem;
-}
-
-h2 {
-  color: "#289494"
+  font-weight: "normal";
 }

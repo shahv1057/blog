@@ -13,8 +13,8 @@ export default () => (
       href="https://instagram.com/veeral_shah"
       target="blank"
       rel="noopener noreferrer"
-      hover = {{
-        textShadow: "2px 1 0 steelblue"
+      hover={{
+        textShadow: "2px 1 0 steelblue",
       }}
       style={{
         borderBottom: "none",
