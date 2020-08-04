@@ -154,7 +154,7 @@ const Footer = () => (
       }}
     >
       <img
-        src="/Plots/logo.png"
+        src="/Plots/Logo.png"
         width="55"
         style={{
           float: "center",
