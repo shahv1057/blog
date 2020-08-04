@@ -55,3 +55,35 @@ h1.blog-post-title {
   margin-bottom: 0.2rem;
   font-weight: "normal";
 }
+
+.menu-items {
+  float: right;
+  list-style: none;
+  border: none;
+  font-size: 100%;
+  font-family: "Arsenal";
+  margin-top: 10px;
+}
+
+h1.title {
+  color: #289494;
+  font-size: 70px;
+  font-family: Arsenal;
+  letter-spacing: 4px;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 600px) {
+  ul.menu-items {
+    float: initial;
+    margin-bottom: 0;
+  }
+
+  div.social-icons {
+    justify-content: center;
+  }
+
+  h1.title {
+    font-size: 45px;
+  }
+}

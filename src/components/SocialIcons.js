@@ -4,6 +4,7 @@ import { css } from "@emotion/core"
 
 export default () => (
   <div
+    className="social-icons"
     css={css`
       display: flex;
       flex-direction: row;

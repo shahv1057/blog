@@ -51,29 +51,10 @@ export default ({ children, title = undefined }) => {
             marginTop: "30px",
           }}
         >
-          <h1
-            style={{
-              color: "#289494",
-              fontSize: "70px",
-              fontFamily: "Arsenal",
-              letterSpacing: "4px",
-              fontWeight: "normal",
-            }}
-          >
-            {data.site.siteMetadata.title}
-          </h1>
+          <h1 className="title">{data.site.siteMetadata.title}</h1>
         </Link>
 
-        <ul
-          style={{
-            listStyle: `none`,
-            float: `right`,
-            border: `none`,
-            fontSize: "100%",
-            fontFamily: "Arsenal",
-            marginTop: "10px",
-          }}
-        >
+        <ul className="menu-items">
           <ListLink to="/">Home</ListLink>
           <ListLink to="/about">About</ListLink>
           <ListLink to="/contact">Contact</ListLink>
