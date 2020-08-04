@@ -92,7 +92,7 @@ export default ({ children, title = undefined }) => {
       ></hr>
 
       <div>{children}</div>
-      <div>
+      <div style={{ clear: "both" }}>
         <Footer></Footer>
       </div>
 
