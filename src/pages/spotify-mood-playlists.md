@@ -1,7 +1,7 @@
 ---
 title: "Building Mood-Based Spotify Playlists using K-Means Clustering"
 description: A deep dive into my Spotify music preferences and how to build Spotify playlists corresponding to different moods...
-date: "2020-07-07"
+date: "2020-07-20"
 coverimage: "/Plots/musicmoods.jpg"
 ---
 

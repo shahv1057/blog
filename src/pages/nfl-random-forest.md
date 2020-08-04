@@ -4,7 +4,7 @@ date: "2020-02-20"
 coverimage: "/Plots/payton-playsheet-375.jpg"
 ---
 
-![](/Plots/payton-playsheet-375.jpg "Logo Title Text 1")
+<img src="/Plots/payton-playsheet-375.jpg" width="400" height="300"/>
 
 <h2> Introduction </h2>
 

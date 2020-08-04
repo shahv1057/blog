@@ -29,7 +29,7 @@ export default ({ children, title = undefined }) => {
   )
 
   return (
-    <div style={{ margin: `3rem auto`, maxWidth: 1300, padding: `0 1em` }}>
+    <div style={{ marginTop: `3rem auto`, maxWidth: 1300, padding: `0 1em` }}>
       <SEO
         title={title || data.site.siteMetadata.title}
         description={data.site.siteMetadata.description}
@@ -39,8 +39,8 @@ export default ({ children, title = undefined }) => {
           marginTop: "40px",
           backgroundColor: `#F1F1F1`,
           textAlign: "center",
-          marginLeft: "130px",
-          marginRight: "130px",
+          marginLeft: "10%",
+          marginRight: "10%",
         }}
       >
         <Link
@@ -85,8 +85,8 @@ export default ({ children, title = undefined }) => {
         color="white"
         style={{
           width: "79%",
-          marginLeft: "130px",
-          marginRight: "130px",
+          marginLeft: "10%",
+          marginRight: "10%",
           marginTop: "15px",
         }}
       ></hr>
@@ -97,7 +97,7 @@ export default ({ children, title = undefined }) => {
       </div>
 
       {/* <footer>      
-      <hr style={{width:"79%",marginLeft:"130px", marginRight:"130px"}}></hr>
+      <hr style={{width:"79%",marginLeft:"10%", marginRight:"10%"}}></hr>
       <li style={{
       width: "100%", 
       height:"270px",
@@ -105,11 +105,11 @@ export default ({ children, title = undefined }) => {
       backgroundColor: "#F1F1F1",
       alignItems: "flex-end",
       justifyContent: "space-between",
-      marginLeft: "130px"
+      marginLeft: "10%"
       }}
       >
-      <SocialIcons style={{alignItems: "flex-end", marginLeft: "130px"}}></SocialIcons>
-      <div style={{alignItems: "center",marginBottom:'35px',textAlign: "center",marginRight: '130px'}}>
+      <SocialIcons style={{alignItems: "flex-end", marginLeft: "10%"}}></SocialIcons>
+      <div style={{alignItems: "center",marginBottom:'35px',textAlign: "center",marginRight: '10%'}}>
       <h3 style = {{fontFamily:"Arsenal"}}>Contact Me</h3>
       <form method="post" action="https://www.flexyform.com/f/741fb57755e870b536ff3891610201ea6ef4f9cd">
         <textarea type='text' style={{border:'none'}} name='fullname' placeholder="Name" rows="1" cols="24" fontSize='40px'></textarea>
@@ -141,8 +141,8 @@ const Footer = () => (
     <hr
       style={{
         width: "79%",
-        marginLeft: "130px",
-        marginRight: "130px",
+        marginLeft: "10%",
+        marginRight: "10%",
         marginTop: "100px",
       }}
     ></hr>

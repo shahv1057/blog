@@ -11,8 +11,8 @@ export default ({ data }) => {
     <Layout title="Home">
       <div
         style={{
-          marginLeft: "130px",
-          marginRight: "130px",
+          marginLeft: "10%",
+          marginRight: "10%",
           fontFamily: "Arsenal",
         }}
       >
@@ -52,7 +52,7 @@ export default ({ data }) => {
                     />
                   ) : (
                     <img
-                      src="/Plots/IMG_2371.jpg"
+                      src="/Plots/plotexample.png"
                       height="150"
                       width="200"
                       margin-right="20px"

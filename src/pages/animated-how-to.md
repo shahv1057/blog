@@ -1,6 +1,6 @@
 ---
-title: "Using Animated Plots"
-description: "How to create an animated bar plot using Pandas and Matplotlib..."
+title: "Visualizing Time Series with Animated Plots"
+description: "Create an animated bar plot using Pandas and Matplotlib to visualize how data changes over a specified time period..."
 date: "2020-04-10"
 coverimage: "/Plots/COVIDPlots/CTY-bar-ani.gif"
 ---

@@ -4,37 +4,41 @@ import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import { css } from "@emotion/core"
 
-
 export default ({ data }) => {
   // console.log(data)
   const post = data.markdownRemark
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} description={post.frontmatter.description
+      <SEO
+        title={post.frontmatter.title}
+        description={
+          post.frontmatter.description
             ? post.frontmatter.description
-            : post.excerpt} />
-      <div style={{marginLeft:"130px",marginRight:"130px", marginBottom:"90px"}}>
-        <h1
-        className="blog-post-title"
-      
-        >
-          {post.frontmatter.title}
-        </h1>
+            : post.excerpt
+        }
+      />
+      <div
+        style={{
+          marginLeft: "130px",
+          marginRight: "130px",
+          marginBottom: "150px",
+        }}
+      >
+        <h1 className="blog-post-title">{post.frontmatter.title}</h1>
         <span
           css={css`
-            color: #bbb;
-            margin-bottom: 2rem;
+            margin-bottom: 10px;
           `}
         >
           {!post.frontmatter.draft && post.frontmatter.date}
         </span>
         <br />
 
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div
+          style={{ marginTop: "20px" }}
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
       </div>
-
-
-
     </Layout>
   )
 }

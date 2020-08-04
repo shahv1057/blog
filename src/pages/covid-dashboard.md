@@ -1,6 +1,6 @@
 ---
 title: "COVID-19 State Dashboard"
-description: Interactive, state-by-state data on coronavirus cases, deaths, and testing...
+description: Interactive visualizations of state-specific coronavirus case, death, and testing data in the United States...
 date: "2020-06-23"
 coverimage: "./Plots/plotexample.png"
 ---

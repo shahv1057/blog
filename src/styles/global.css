@@ -19,13 +19,12 @@ body {
 
 div.myClass {
   color: #2d2d2d;
-  font-size: 28px;
+  font-size: 33px;
   text-decoration: none;
   font-weight: normal;
   margin-bottom: 10px;
-  line-height: 40px;
+  line-height: 35px;
   font-family: "Arsenal";
-  margin-bottom: 0px;
 }
 div.myClass:hover {
   color: #289494;
@@ -33,7 +32,7 @@ div.myClass:hover {
 
 div.myspan {
   color: hsla(0, 0%, 50%, 0.7);
-  font-size: 18px;
+  font-size: 20px;
   text-decoration: none;
 }
 
