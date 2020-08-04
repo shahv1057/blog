@@ -8,9 +8,7 @@ export default function Contact() {
       <div style={{ marginLeft: "130px", marginRight: "130px" }}>
         <h1>Contact</h1>
         <p>
-          <strong>
-            I would love to hear any of your comments, questions, or feedback!{" "}
-          </strong>
+          I would love to hear any of your comments, questions, or feedback!{" "}
         </p>
         <div
           style={{

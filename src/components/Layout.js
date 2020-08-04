@@ -91,7 +91,7 @@ export default ({ children, title = undefined }) => {
         }}
       ></hr>
 
-      {children}
+      <div>{children}</div>
       <div>
         <Footer></Footer>
       </div>

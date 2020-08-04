@@ -5,17 +5,18 @@ date: "2020-04-10"
 coverimage: "/Plots/COVIDPlots/CTY-bar-ani.gif"
 ---
 
-<h1> Introduction </h1>
+<h2> Introduction </h2>
 
-I've been working alongside a team of people to collect and analyze data relating to the impact and response to COVID-19 over the past few weeks. When trying to convey the changes in collected responses over time, I've found it especially useful to use animated plots like this time-series animated bar plot showing the county-specific spread of the the virus over the last few months: 
+I've been working alongside a team of people to collect and analyze data relating to the impact and response to COVID-19 over the past few weeks. When trying to convey the changes in collected responses over time, I've found it especially useful to use animated plots like this time-series animated bar plot showing the county-specific spread of the the virus over the last few months:
 
-![debatepic](/Plots/COVIDPlots/CTY-bar-ani.gif "")
+![debatepic](/Plots/COVIDPlots/CTY-bar-ani.gif)
 
 This post is about how to create such plots that convey trends in data over time in an accessible and informative manner.
 
 ## Prerequisites
 
 You'll need a bit of rudimentary Python knowledge, and the following packages:
+
 - Pandas
 - Numpy
 - Matplotlib
@@ -23,7 +24,7 @@ You'll need a bit of rudimentary Python knowledge, and the following packages:
 
 That's it! Make sure you have those packages installed and imported and let's get started!
 
-## Collect and Organize your Data 
+## Collect and Organize your Data
 
 Pandas has a tool to import data from just about any common data source into a Dataframe in Python. The package can read data from a CSV file, JSON file, TXT file, Excel file, HTML file, etc. and organize it for you into your Dataframe. Link [**here**](https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html) for specific documentation. Your dataframe should look something like this:
 
@@ -76,29 +77,17 @@ To create your animation, I suggest you use the FuncAnimation function from Matl
 - repeat: Boolean that controls whether or not you animation repeats from the beginning after iterating through all dates
 - repeat_delay: If the animation in repeated, adds a delay in milliseconds before repeating the animation.
 
-
 You can save your animation as a .mov, .mp4, or .gif file in your local path. Your animation function should look something like:
 
 ```python
 anim = matplotlib.animation.FuncAnimation(
-    fig=fig, 
-    func=update, 
-    frames=date_list, 
-    interval=1000, 
-    repeat=True, 
+    fig=fig,
+    func=update,
+    frames=date_list,
+    interval=1000,
+    repeat=True,
     repeat_delay=2000
 )
 
 anim.save(local_path+'myanim.gif')
-``` 
-
-
-
-
-
-
-
-
-
-
-
+```
