@@ -53,9 +53,9 @@ export default ({ data }) => {
                   ) : (
                     <img
                       src="/Plots/plotexample.png"
-                      height="150"
-                      width="200"
-                      margin-right="20px"
+                      height="200"
+                      width="250"
+                      margin-right="10px"
                     />
                   )}
                 </div>
