@@ -45,7 +45,8 @@
     "typography": "^0.16.19",
     "typography-theme-alton": "^0.16.19",
     "typography-theme-fairy-gates": "^0.16.19",
-    "typography-theme-ocean-beach": "^0.16.19"
+    "typography-theme-ocean-beach": "^0.16.19",
+    "yarn": "^1.22.5"
   },
   "resolutions": {
     "gatsby-react-router-scroll": "3.0.3"
