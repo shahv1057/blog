@@ -17,13 +17,7 @@ export default ({ data }) => {
             : post.excerpt
         }
       />
-      <div
-        style={{
-          marginLeft: "130px",
-          marginRight: "130px",
-          marginBottom: "150px",
-        }}
-      >
+      <div className="blog-post">
         <h1 className="blog-post-title">{post.frontmatter.title}</h1>
         <span
           css={css`
