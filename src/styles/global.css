@@ -41,9 +41,9 @@ div.myspan:hover {
 }
 
 div.blog-post {
-  marginleft: 13%;
-  marginright: 13%;
-  marginbottom: 13%;
+  margin-left: 13%;
+  margin-right: 13%;
+  margin-bottom: 13%;
 }
 
 h1,
@@ -107,8 +107,8 @@ h1.title {
   }
 
   div.blog-post {
-    marginleft: 5%;
-    marginright: 5%;
-    marginbottom: 5%;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-bottom: 8%;
   }
 }
