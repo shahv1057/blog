@@ -40,6 +40,12 @@ div.myspan:hover {
   color: #289494;
 }
 
+div.blog-post {
+  marginleft: 13%;
+  marginright: 13%;
+  marginbottom: 13%;
+}
+
 h1,
 h2,
 h3,
@@ -98,5 +104,11 @@ h1.title {
 
   h1.title {
     font-size: 45px;
+  }
+
+  div.blog-post {
+    marginleft: 5%;
+    marginright: 5%;
+    marginbottom: 5%;
   }
 }
