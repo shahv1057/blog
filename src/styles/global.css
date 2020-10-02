@@ -74,9 +74,10 @@ h1.title {
 }
 
 .icons {
-  width: 30px;
-  height: 30px;
+  width: 27px;
+  height: 27px;
   margin-right: 1.5rem;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 600px) {
@@ -92,6 +93,7 @@ h1.title {
     width: 20px;
     height: 20px;
     margin-right: 1.5rem;
+    margin-top: 10px;
   }
 
   h1.title {

@@ -5,7 +5,7 @@ import Layout from "../components/Layout"
 export default function Contact() {
   return (
     <Layout title="Contact">
-      <div style={{ marginLeft: "130px", marginRight: "130px" }}>
+      <div style={{ marginLeft: "10%", marginRight: "10%" }}>
         <h1>Contact</h1>
         <p>
           I would love to hear any of your comments, questions, or feedback!{" "}
@@ -13,15 +13,16 @@ export default function Contact() {
         <div
           style={{
             display: "flex",
-            marginLeft: "80px",
-            marginTop: "40px",
-            marginRight: "40px",
+            marginLeft: "5%",
+            marginTop: "5%",
+            marginRight: "5%",
           }}
         >
           <img
             src="/Plots/coding-stock-pic.png"
-            height="300"
-            margin-right="80px"
+            width="45%"
+            height="45%"
+            margin-right="10%"
           ></img>
           <ContactForm></ContactForm>
         </div>

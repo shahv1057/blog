@@ -17,11 +17,11 @@ This project has 4 distinct parts:
 
 1. **Obtain Spotify Data**: Use the Spotify API to obtain all my music listening data from the past year.
 
-2. **Music Taste Analysis**: Take a deep dive into my song, artist, and album preferences and how these preferences have fluctuated over the year.
+2. **Analyze Music Taste**: Take a deep dive into my song, artist, and album preferences and how these preferences have fluctuated over the year.
 
-3. **Mood Prediction**: Analyse audio features such as the **_acousticness_**, **_tempo_**, and **_instrumentalness_** of my song preferences and utilize the K-Means Clustering algorithim to stratify the music into different, defined moods.
+3. **Predict Different Moods**: Analyse audio features such as the **_acousticness_**, **_tempo_**, and **_instrumentalness_** of my song preferences and utilize the K-Means Clustering algorithim to stratify the music into different, defined moods.
 
-4. **Playlist Curation**: Develop custom mood-specific Spotify playlists based on my music preferences and mood clusters from the last two parts.
+4. **Create Playlists**: Develop custom mood-specific Spotify playlists based on my music preferences and mood clusters from the last two parts.
 
 ## Obtaining Spotify Data
 
@@ -68,13 +68,13 @@ To best display and understand my data, I utilized the `Plotly` package for inte
 
 _After Hours_, by the Weeknd, tops the chart of my most listened to songs of the past year! Even though the song didn't come out till February, I clearly had it on repeat essentially through April. An interesting note about the song is that it is a 6+ minute song, much longer than the average song I listen to (3ish min.) and the measurement variable of "sum minutes listened" rather than "count of times listened" probably worked in its favor.
 
-<iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/34.embed"></iframe>
+<iframe position="relative" height="600" width="100%" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/34.embed"></iframe>
 
 ### Top Artists
 
 Post Malone, whom my dad lovingly refers to as, "Post Office Malone", came out as my top artist of the past year. There was a pretty constant stream of various Post songs over my last 12 months. In fact, all three of his albums show up on my top 20 albums list of the past year!
 
-<iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/71.embed"></iframe>
+<iframe position="relative" height="600" width="100%" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/71.embed"></iframe>
 
 ### Top Albums
 
@@ -82,7 +82,7 @@ Post Malone, whom my dad lovingly refers to as, "Post Office Malone", came out a
 
 The Weeknd's _After Hours_ album tops the chart of top albums of the past year, which makes a lot of sense thinking back to all the days of cycling through the album on repeat while messing around in my Jupyter Notebooks. Recently, you can see that Polo G's _The GOAT_ has been occupying much of the Jupyter Notebook-ing time.
 
-<iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/73.embed"></iframe>
+<iframe position="relative" height="600" width="100%" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/73.embed"></iframe>
 
 ## Using K-Means clustering to predict my different music-listening moods
 
@@ -108,7 +108,7 @@ I run the `sklearn` K-Means algorithim on my data set and ultimately choose 4 cl
 
 ##### Clusters x Inertia
 
-<iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/49.embed"></iframe>
+<iframe position="relative" height="600" width="100%" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/49.embed"></iframe>
 
 ### Preprocess the Data
 
@@ -141,19 +141,19 @@ Now that I have an algorithim and process down, I begin the preprocessing of my 
 .tg .tg-hmp3{background-color:#D2E4FC;text-align:left;vertical-align:top}
 .tg .tg-0lax{text-align:left;vertical-align:top}
 </style>
-<table class="tg" style="undefined;table-layout: fixed; width: 880px">
+<table class="tg" style="undefined;table-layout: fixed; width: 100%">
 <colgroup>
-<col style="width: 80px">
-<col style="width: 80px">
-<col style="width: 80px">
-<col style="width: 80px">
-<col style="width: 80px">
-<col style="width: 80px">
-<col style="width: 80px">
-<col style="width: 80px">
-<col style="width: 80px">
-<col style="width: 80px">
-<col style="width: 80px">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
 </colgroup>
 <thead>
   <tr>
@@ -230,7 +230,7 @@ Now that I have an algorithim and process down, I begin the preprocessing of my 
 
 The first thing I noticed about each feature is that the distributions are all a bit different. Let's visualize this:
 
-<iframe width="900" height="700" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/45.embed"></iframe>
+<iframe position="relative" height="700" width="100%" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/45.embed"></iframe>
 
 A few impressions of the data:
 
@@ -279,7 +279,7 @@ pc_2d.columns = ['x', 'y','label']
 
 (It is important to note that (x,y) coordinates plotted are a transformed representation of a combination of my 8 features, but **do not exhibit any direct intuition into the feature values**)
 
-<iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/57.embed"></iframe>
+<iframe position="relative" height="500" width="100%" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/57.embed"></iframe>
 
 By using PCA, I can see my data much more clearly. As shown in the plot, labels "2" and "3" are pretty well defined with not too much overlap, while labels "0" and "1" have a large amount of overlap.
 
@@ -312,7 +312,7 @@ Input: print (pca_3d.explained_variance_ratio_ , sum(pca_3d.explained_variance_r
 Output: array([0.32387322, 0.22293707, 0.17594222]), 0.7226
 ```
 
-<iframe width="900" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/61.embed"></iframe>
+<iframe position="relative" width="100%" height="600" frameborder="0" scrolling="no" src="//plotly.com/~shahv1057/61.embed"></iframe>
 
 ## Results
 

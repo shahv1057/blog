@@ -19,10 +19,8 @@ class ContactForm extends React.Component {
         <div
           style={{
             textAlign: "left",
-            marginTop: "30px",
-            border: "1px",
-            marginRight: "20px",
-            marginLeft: "50px",
+            border: "1%",
+            marginLeft: "15%",
           }}
         >
           <textarea
