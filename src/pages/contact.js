@@ -5,7 +5,7 @@ import Layout from "../components/Layout"
 export default function Contact() {
   return (
     <Layout title="Contact">
-      <div style={{ marginLeft: "10%", marginRight: "10%" }}>
+      <div style={{ marginLeft: "11%", marginRight: "11%" }}>
         <h1>Contact</h1>
         <p>
           I would love to hear any of your comments, questions, or feedback!{" "}
