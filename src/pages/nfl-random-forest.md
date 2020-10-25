@@ -73,7 +73,7 @@ A computer cannot understand words like 'punt' or 'pass'. Therefore, I need to t
 
 After identifying my variables and features, I need to encode my categorical variables. My dependent variable, 'play type', has been filtered only to punt, field goal, run, and pass plays to eliminate extraneous plays such as kickoffs, penalties, and extra points. I encode my 4 play_types as 0, 1, 2, and 3. Additionally, I encode the team names in pos team and def team from 0-31 to represent each of the 32 teams in the NFL.
 
-Next, I fill all _NaNs_ in game/half seconds remaining. These empty cells seem to be some kind of collection error, but can be filled in fairly easily using the a combination of the "quarter", and "quarter seconds remaining" variables. This is a necessary step of cleaning my data to avoid errors on missing data.
+Next, I fill all missing values in game/half seconds remaining. These empty cells seem to be some kind of collection error, but can be filled in fairly easily using the a combination of the "quarter", and "quarter seconds remaining" variables. This is a necessary step of cleaning my data to avoid errors on null data.
 
 ## Preprocessing
 
@@ -87,7 +87,7 @@ I split my data up into training set, validation set, and test set. I will train
 
 To evaluate the performance of my algorithim, I need a baseline accuracy to compare with. This is essential to my analysis, because accuracy is a relative meaure. Achieving 90% accuracy seems successful, but is useless if a random guessing baseline yields 95% accuracy.
 
-![alt text](/Plots/playtypes.png "Logo Title Text 1")
+![alt text](/Plots/playtypecounts.png "Logo Title Text 1")
 
 As seen above, more than 180,000 of my almost 350,000 plays are _pass_ plays. Therefore, I will be using the baseline of predicting every play as a _pass_ play. This incredibly simple prediction model achieves a 52% accuracy score. Lets see how much I can improve on that.
 
@@ -111,7 +111,7 @@ A random forest classifier consists of several of these simple decision trees wi
 
 The key to the random forest model is a concept coined **Bagging**, or more formally, [**Bootstrap Aggregation**](https://en.wikipedia.org/wiki/Bootstrap_aggregating). Bagging creates a system where each tree of a random forest is created on a randomly chosen subset of the training data (with replacement). With decision trees so heavily dependent on the dataset, each tree will be distinctive, and together the trees will encompass the entire data set.
 
-![alt text](/Plots/randforestexample.jpeg "Logo Title Text 1")
+![alt text](/Plots/randforestexample.png "Logo Title Text 1")
 
 As shown above, each tree outputs a prediction, and the class with the most predictions is considered the final prediction. In a 10-tree forest, if 3 trees predict run, 1 tree predicts pass, and 6 trees predict field goal, The final prediction will be field goal for that particular play given the play's situation features.
 
@@ -160,9 +160,9 @@ Here are my accuracies separated by play:
 
 **field goal**: 93.4%
 
-**rush**: 65.1%
-
 **pass**: 72.9%
+
+**rush**: 65.1%
 
 My algorithim did very well classifying punts and field goals. However, it clearly has the most trouble interchanging running and passing plays.
 
@@ -193,7 +193,5 @@ As this is my first Random Forest Classifier, I am still developing a more compr
 #### Try other machine learning classification models
 
 More on this hopefully coming soon!!
-
----
 
 ## **THANK YOU FOR READING!**

@@ -16,13 +16,14 @@ export default function Contact() {
             marginLeft: "5%",
             marginTop: "5%",
             marginRight: "5%",
+            justifyContent: "center",
           }}
         >
           <img
             src="/Plots/coding-stock-pic.png"
+            margin="5%"
             width="45%"
             height="45%"
-            margin-right="10%"
           ></img>
           <ContactForm></ContactForm>
         </div>

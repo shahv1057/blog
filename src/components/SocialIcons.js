@@ -36,7 +36,7 @@ export default () => (
     </a>
 
     <a
-      href="https://www.linkedin.com/in/veeral-shah-b1701511a/"
+      href="https://www.linkedin.com/in/veeral-shah/"
       target="blank"
       rel="noopener noreferrer"
       style={{
