@@ -33,7 +33,7 @@
     "gatsby-remark-prismjs": "^3.5.1",
     "gatsby-remark-table-of-contents": "0.0.9",
     "gatsby-source-filesystem": "^2.1.48",
-    "gatsby-transformer-remark": "^2.8.8",
+    "gatsby-transformer-remark": "^5.25.1",
     "plotly.js": "^1.53.0",
     "prismjs": "^1.20.0",
     "react": "^16.12.0",
